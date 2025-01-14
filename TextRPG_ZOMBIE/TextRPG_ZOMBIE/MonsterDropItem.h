@@ -8,4 +8,3 @@ class MonsterDropItem
 public:
 	void dropItem(Inventory* Inven);
 };
-

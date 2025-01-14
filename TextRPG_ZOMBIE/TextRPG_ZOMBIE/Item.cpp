@@ -1,10 +1,10 @@
 #include "Item.h"
 
 // 생성자 구현 (초기화 값을 넣거나, 기본값 설정)
-All_Item::All_Item(ItemList type)
-    : Name(""), ItemType(type), Price(0), CurrentStack(0), MaxStack(0)
+Items::Items(ItemType type)
+    : Name(""), itemtype(type), Price(0), CurrentStack(0), MaxStack(0)
 {
-    switch (ItemType)
+    switch (itemtype)
     {
     case Morphine:
         Name = "모르핀";
@@ -38,9 +38,14 @@ All_Item::All_Item(ItemList type)
     }
 }
 
-void All_Item::use(Character* chara)
+void Items::use(Character* chara)
 {
-    switch (ItemType)
+    if (CurrentStack < 1)
+        return;
+    // 아이템 사용 후 감소
+    --CurrentStack;
+
+    switch (itemtype)
     {
     case Morphine:
         cout << "사용: 모르핀, 체력 50 회복.";
@@ -59,6 +64,7 @@ void All_Item::use(Character* chara)
         chara->AttackPower += 50;
         break;
 
+        // 체력 30 이하일때 펜타닐 복용 예외처리
     case Fentanyl:
         cout << "사용: 펜타닐, 최대 체력 30 감소, 체력 5000 회복";
         chara->MaxHP -= 30;
@@ -72,11 +78,5 @@ void All_Item::use(Character* chara)
         chara->MaxHP += 80;
         chara->HP += 80;
         break;
-    }
-
-    // 사용 후 스택 감소
-    if (CurrentStack > 0)
-    {
-        --CurrentStack;
     }
 }
