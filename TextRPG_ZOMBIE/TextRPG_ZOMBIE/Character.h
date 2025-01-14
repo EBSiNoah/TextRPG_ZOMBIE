@@ -42,6 +42,10 @@ public:
     // 공격 오버라이딩
     int Attack() override;
 
+    int getLevel() const {
+        return Level;
+    }
+
     // 아이템
     bool useShield(int inputAttackPower); // 일회용 방패 아이템
     void useWoodenSword(); // 목검 아이템
