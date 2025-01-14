@@ -1,21 +1,21 @@
 #include "Shop.h"
-// #include "Character.h"
-// #include "Itme.h"
+#include "Character.h"
+#include "Item.h"
 #include <iomanip>
 #include <iostream>
 using namespace std;
 
-Shop::Shop()
+Shop::Shop(Character* character) : character(character)
 {
 }
 
 void Shop::displayMenu() {
     int shop_idx;
-    cout << "------------------------------------------------------------" << endl;
-    cout << "           »ó   Á¡           " << endl;
+    cout << "============================" << endl;
+    cout << "          ï¿½ï¿½   ï¿½ï¿½           " << endl;
     displayItems();
-    cout << "1. ±¸¸Å   2. ÆÇ¸Å   3. º¸À¯ ¹°Ç°" << endl;
-    cout << "¾î¶² ¼­ºñ½º¸¦ ÀÌ¿ëÇÏ½Ã°Ú½À´Ï±î? : ";
+    cout << "1. ï¿½ï¿½ï¿½ï¿½   2. ï¿½Ç¸ï¿½   3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°" << endl;
+    cout << "ï¿½î¶² ï¿½ï¿½ï¿½ñ½º¸ï¿½ ï¿½Ì¿ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½? : ";
     cin >> shop_idx;
     switch (shop_idx) {
     case 1:
@@ -25,42 +25,95 @@ void Shop::displayMenu() {
         sellItem();
         break;
     }
+    default:
+        cout << "ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl;
+    }
+        
+
 }
 
-void Shop::displayItems(/*Character& character*/)
+void Shop::displayItems()
 {
-    // All_Item º¯¼ö¿¡ ´ëÇÑ getÇÔ¼ö, set(Currnetstack¸¸) Ãß°¡
-    cout << setw(15) << "¾ÆÀÌÅÛ"
-        << setw(10) << "±¸¸Å °¡°Ý"
-        << setw(10) << "ÆÇ¸Å °¡°Ý"
-        << setw(15) << "ÇöÀç º¸À¯"
-        << setw(15) << "ÃÖ´ë º¸À¯" << endl;
-    cout << "------------------------------------------------------------" << endl;
-    /*
-    for (int i = 0; i < inventory.; ++i) {
-        //All_Item* item = character.OwnedItems[i]; // Ä³¸¯ÅÍÀÇ ¾ÆÀÌÅÛ Á¢±Ù
-        cout << setw(15) << item->getName()
-            << setw(10) << item->getPrice()
-            << setw(10) << item->getPrice() * 0.6
-            << setw(15) << item->getCurrentStack()
-            << setw(15) << item->getMaxStack() << endl;
+
+   //..Items& item = Inventory.item; 
+
+    cout << setw(4) << "ï¿½ï¿½È£";
+    cout << setw(15) << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+    cout << setw(10) << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
+    cout << setw(10) << "ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½";
+    cout << setw(15) << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"; 
+    cout << setw(15) << "ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½" << endl;
+    cout << "============================" << endl;
+
+    for (int i = 0; i < ItemType::Max; ++i) {
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¹ï¿½ï¿½ï¿½ï¿½ ï¿½Ë°ÔµÇ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Ú½ï¿½ï¿½Ï´ï¿½
+        //cout << setw(15) << Inventory::item[i].getName();
+         //cout << setw(10) << item[i].getPrice();
+         //cout << setw(10) << Inventory::item[i]->getPrice() * 0.6;
+        // cout << setw(15) << item[i]->getCurrentStack();
+         //cout << setw(15) << Inventory::item->getMaxStack() << endl;
 
     }
-    */
-    cout << "------------------------------------------------------------" << endl;
+    
+    cout << "============================" << endl;
 }
 
 void Shop::buyItem()
 {
+    int item_idx;
+    int item_amount;
+    cout << "ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½: ";
+    cin >> item_idx;
+
+    if (item_idx < 0/* || item_idx>ItemList::Max*/)
+    {
+        cout << "ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½." << endl;
+        return;
+    }
+
+    //cout << item->getMaxStack() << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½: ";
+    cin >> item_amount;
+
+    if (item_amount <= 0 /*|| item_amount > item->getMaxStack() - item->getCurrentStack()*/)
+    {
+        cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Õ´Ï´ï¿½." << endl;
+        return;
+    }
+
+    //item[item_idx].CurrentStack++;
+    //character->payMoney(getPrice());
+
 
 }
 void Shop::sellItem()
 {
+    int item_idx;
+    int item_amount;
+    cout << "ï¿½Ç¸Å¸ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½: ";
+    cin >> item_idx;
 
+    if (item_idx < 0 /* || item_idx>ItemList::Max*/)
+    {
+        cout << "ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½." << endl;
+        return;
+    }
+
+    //cout << item->getMaxStack() << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½: ";
+    cin >> item_amount;
+
+    if (item_amount <= 0 /*|| item_amount > item->getCurrentStack()*/)
+    {
+        cout << "ï¿½Ç¸ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Õ´Ï´ï¿½." << endl;
+        return;
+    }
+
+    //item[item_idx].CurrentStack--;
+    //character->gainMoney(getPrice()*0.6);
 }
 
 Shop::~Shop()
 {
-    cout << "   »óÁ¡ÀÌ Á¾·áµÇ¾ú½À´Ï´Ù. " << endl;
-    cout << "------------------------------------------------------------" << endl;
+    cout << "   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. " << endl;
+    cout << "============================" << endl;
+    character = nullptr;
 }
