@@ -7,16 +7,24 @@ using namespace std;
 
 Shop::Shop()
 {
-    //int shop_idx;
-    //cout << "------------------------------------------------------------" << endl;
-    //cout << "           상   점           " << endl;
-    //displayItems();
-    //cout << "1.구매   2. 판매   3. 보유물품" << endl;
-    //cout << "어떤 서비스를 이용하시겠습니가? : ";
-    //cin >> shop_idx;
-    //switch (shop_idx)
-    //    case 1:
-    //        buyItem();
+}
+
+void Shop::displayMenu() {
+    int shop_idx;
+    cout << "------------------------------------------------------------" << endl;
+    cout << "           상   점           " << endl;
+    displayItems();
+    cout << "1. 구매   2. 판매   3. 보유 물품" << endl;
+    cout << "어떤 서비스를 이용하시겠습니까? : ";
+    cin >> shop_idx;
+    switch (shop_idx) {
+    case 1:
+        buyItem();
+        break;
+    case 2:
+        sellItem();
+        break;
+    }
 }
 
 void Shop::displayItems(/*Character& character*/)
