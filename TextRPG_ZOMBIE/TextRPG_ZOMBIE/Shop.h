@@ -1,13 +1,16 @@
 #pragma once
+#include "Character.h"
 
 class Shop {
+private:
+	Character* character;
+
 public:
-	Shop();
+	Shop(Character* character);
 	~Shop();
 
-	void displayItems(/*Character& character*/);
+	void displayItems();
 	void buyItem();
 	void sellItem();
-
 
 };
