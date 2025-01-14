@@ -30,9 +30,9 @@ Shop::Shop(Character* character) : character(character)
 }
 
 void Shop::displayItems()
-{   // 아이템에 접근하는 방법을 모르겠습니다..... 
-    // 캐릭터랑 아이템 인벤토리가 같다면
-    //All_Item& item = character->Inventory[i]; 
+{
+
+   //..Items& item = Inventory.item; 
 
     cout << setw(4) << "번호";
     cout << setw(15) << "아이템";
@@ -42,14 +42,14 @@ void Shop::displayItems()
     cout << setw(15) << "최대 보유" << endl;
     cout << "============================" << endl;
 
-    for (int i = 0; i < ItemList::Max; ++i) {
+    for (int i = 0; i < ItemType::Max; ++i) {
         // 아이템 접근방법을 알게되면 수정하겠습니다
-        /*cout << setw(15) << Inventory.item[i].getName();
-         cout << setw(10) << item[i].getPrice();
-         cout << setw(10) << Inventory::item[i]->getPrice() * 0.6;
-         cout << setw(15) << item[i]->getCurrentStack();
-         cout << setw(15) << Inventory::item->getMaxStack() << endl;
-*/
+        //cout << setw(15) << Inventory::item[i].getName();
+         //cout << setw(10) << item[i].getPrice();
+         //cout << setw(10) << Inventory::item[i]->getPrice() * 0.6;
+        // cout << setw(15) << item[i]->getCurrentStack();
+         //cout << setw(15) << Inventory::item->getMaxStack() << endl;
+
     }
     
     cout << "============================" << endl;
@@ -62,7 +62,7 @@ void Shop::buyItem()
     cout << "구매를 원하는 아이템 번호를 입력해주세요: ";
     cin >> item_idx;
 
-    if (item_idx < 0 || item_idx>ItemList::Max)
+    if (item_idx < 0/* || item_idx>ItemList::Max*/)
     {
         cout << "해당 아이템이 존재하지 않습니다." << endl;
         return;
@@ -77,7 +77,7 @@ void Shop::buyItem()
         return;
     }
 
-    //item[item_idx].CurrentStack++
+    //item[item_idx].CurrentStack++;
     //character->payMoney(getPrice());
 
 
@@ -89,7 +89,7 @@ void Shop::sellItem()
     cout << "판매를 원하는 아이템 번호를 입력해주세요: ";
     cin >> item_idx;
 
-    if (item_idx < 0 || item_idx>ItemList::Max)
+    if (item_idx < 0 /* || item_idx>ItemList::Max*/)
     {
         cout << "해당 아이템이 존재하지 않습니다." << endl;
         return;
