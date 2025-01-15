@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include "Item.h"
 using namespace std;
 
 Character::Character()
@@ -39,11 +40,80 @@ void Character::gainExp(int amount)
         levelUp();
     }
 }
+// Get HP
+int Character::getHP() const
+{
+    return HP;
+}
+
+// Set HP
+void Character::setHP(const int amount)
+{
+    HP = amount;
+}
+
+// Get MaxHP
+int Character::getMaxHP() const
+{
+    return MaxHP;
+}
+
+// Set MaxHP
+void Character::setMaxHP(const int amount)
+{
+    if (amount < getHP())
+    {
+        HP = amount;
+    }
+    MaxHP = amount;
+}
+
+// Get Condition
+string Character::getCondition() const
+{
+    return Condition;
+}
+
+// Set Condition
+void Character::setCondition(const string status)
+{
+    Condition = status;
+}
+
+
+// Get Attack
+int Character::getAttackPower() const
+{
+    return AttackPower;
+}
+
+// Set Attack
+void Character::setAttackPower(const int amount)
+{
+    AttackPower = amount;
+}
+
+// Get Level
+int Character::getLevel() const
+{
+    return Level;
+}
+
+// Get Money
+int Character::getMoney() const
+{
+    return Money;
+}
+
+// Set Money
+void Character::setMoney(int amount) {
+    Money = amount;
+}
 
 // Gain money
 void Character::gainMoney(int amount)
 {
-    Money += amount;
+    setMoney(Money + amount);
     cout << "돈 획득: " << amount << " (보유 돈 : " << Money << ")" << endl;
 }
 
@@ -53,13 +123,13 @@ bool Character::payMoney(int price)
     if (price > Money)
     {
         cout << "보유 골드가 부족합니다!";
-        return 0;
+        return false;
     }
     else
     {
-        Money -= price;
+        setMoney(Money - price);
         cout << price << "원을 지불 했습니다. 잔액 (" << Money << ")";
-        return 1;
+        return true;
     }    
 }
 
