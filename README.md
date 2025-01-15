@@ -42,7 +42,7 @@
 
 ## 주요 기능
 - Actor class
-  ```c++
+```c++
 class Actor
 {
 private:
