@@ -27,7 +27,7 @@
 ## 프로젝트 목표
 
 - 객체지향 프로그래밍
-  - class 로 객체를 생성하는 것에 대한 이해와 상속을 통한 다형성, 모듈화에 더해 서로 다른 class 끼리의 데이터 흐름을 파악하고 숙달한다.
+  - class 로 객체를 생성하는 것에 대한 이해와 상속을 통한 다형성, 서로 다른 class 끼리의 데이터 흐름을 파악하고 숙달한다.
 - 협업
   - 작성한 class diagram 을 바탕으로 구현된 서로 다른 작업물을 하나로 합치며 의도된 결과물이 나오도록 숙달한다.
 - 창의력
@@ -42,7 +42,7 @@
 
 ## 주요 기능
 - Actor class
-```c++ class Actor{ private: string Name; int AttackPower; int HP; int MaxHP; public: Actor(); Actor(string inputName, int inputAttackPower, int inputMaxHP); virtual int Attack(); virtual void onHit(int inputAttackPower); bool isDead(); void printStatus(); };```
+```c++ class Actor{  private:  string Name;  int AttackPower;  int HP;  int MaxHP;  public:  Actor();  Actor(string inputName, int inputAttackPower, int inputMaxHP);  virtual int Attack();  virtual void onHit(int inputAttackPower);  bool isDead();  void printStatus();  };```
 - Character class
 - Various Zombie class
 - Item class
