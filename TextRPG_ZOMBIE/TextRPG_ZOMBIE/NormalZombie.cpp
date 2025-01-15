@@ -5,7 +5,7 @@ using namespace std;
 
 NormalZombie::NormalZombie(const int playerLevel) : Actor("", 0, 0)
 {
-    Name = "NormalZombie";
+    Name = "ì¡°ë¬´ëž˜ê¸° ì¢€ë¹„";
     MaxHP = RandomUtil::GetRandomInt(playerLevel * 20, playerLevel * 30);;
     AttackPower = RandomUtil::GetRandomInt(playerLevel * 5, playerLevel * 10);
     HP = MaxHP;
@@ -31,10 +31,10 @@ void NormalZombie::onHit(int inputAttackPower)
 {
     Actor::onHit(inputAttackPower);
 
-    cout << Name << "´Â " << inputAttackPower << "ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù..!" << endl;
+    cout << Name << "ëŠ” " << inputAttackPower << "ì˜ ìƒì²˜ë¥¼ ìž…ê³  ê³ í†µìŠ¤ëŸ¬ìš´ ì‹ ìŒì†Œë¦¬ë¥¼ ë‚´ë©° ë¹„í‹€ê±°ë¦½ë‹ˆë‹¤.." << endl;
 
     if (isDead())
-        cout << Name << "´Â ¸¶Áö¸· ÀÏ°ÝÀ¸·Î »ç¸ÁÇß½À´Ï´Ù !!!" << endl;
+        cout << Name << "ëŠ” " << "ë‹¹ì‹ ì˜ ê³µê²©ìœ¼ë¡œ ì¢€ë¹„ê°€ ë°”ë‹¥ì— ì“°ëŸ¬ì§€ê³  ë” ì´ìƒ ì›€ì§ì´ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl;
 }
 
 void NormalZombie::printStatus() const

@@ -1,4 +1,4 @@
-﻿#include "OpeningScene.h"
+#include "OpeningScene.h"
 
 void OpeningScene::showOpening()
 {

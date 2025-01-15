@@ -5,7 +5,6 @@
 #include "GamemodeBase/BattleScene.h"
 //#include "../EndingScene.h"
 #include "Character.h"
-#include "ZombieFactory.h"
 #include "Shop.h"
 #include <iostream>
 #include <stdlib.h>
@@ -19,9 +18,6 @@ int main() {
     Shop shop;
     CharacterCreation characterCreation;
     MenuScene menuScene;
-
-    
-
 
     openingScene.showOpening(); // 오프닝
     Character player = characterCreation.createCharacter(); // 캐릭터 생성
