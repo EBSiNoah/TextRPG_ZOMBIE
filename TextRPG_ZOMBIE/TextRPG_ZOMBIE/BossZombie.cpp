@@ -5,7 +5,7 @@ using namespace std;
 
 BossZombie::BossZombie(const int playerLevel) : Actor("", 0, 0)
 {
-	Name = "Á»ºñµéÀÇ ¿Õ";
+	Name = "ì¢€ë¹„ë“¤ì˜ ì™•";
 	MaxHP = RandomUtil::GetRandomInt(playerLevel * 20 * 1.5, playerLevel * 30 * 1.5);
 	AttackPower = RandomUtil::GetRandomInt(playerLevel * 5 * 1.5, playerLevel * 10 * 1.5);
 	HP = MaxHP;
@@ -30,12 +30,12 @@ void BossZombie::onHit(int inputAttackPower)
 {
 	Actor::onHit(inputAttackPower);
 
-	cout << "³¯Ä«·Î¿î ¹«±â°¡ " << Name << "ÀÇ ÇÇºÎ¸¦ Âõ½À´Ï´Ù." << Name << "Àº " << inputAttackPower << "ÀÇ ÇÇÇØ¸¦ ¹Ş¾Ò½À´Ï´Ù." << endl;
+	cout << "ë‚ ì¹´ë¡œìš´ ë¬´ê¸°ê°€ " << Name << "ì˜ í”¼ë¶€ë¥¼ ì°¢ìŠµë‹ˆë‹¤." << Name << "ì€ " << inputAttackPower << "ì˜ í”¼í•´ë¥¼ ë°›ì•˜ìŠµë‹ˆë‹¤." << endl;
 
 	if (isDead())
 	{
-		cout << Name << "ÀÇ ¸¶Áö¸· ¼û¼Ò¸®°¡ ¸ØÃè½À´Ï´Ù.´ç½ÅÀÇ ½ÉÀåÀº ¾ÆÁ÷µµ °íµ¿Ä¡¸ç, »ì¾ÆÀÖÀ½À» ¿ÜÄ¡°í ÀÖ½À´Ï´Ù." << endl;
-		cout << "ÀÌÁ¦ ¼¼»óÀº ´ç½ÅÀÇ ¿ë±â·Î ÀÎÇØ »õ·Î¿î ³¯À» ¸ÂÀÌÇÕ´Ï´Ù.´ç½ÅÀÇ ¿©Á¤Àº ³¡³µÁö¸¸, ´ç½ÅÀÇ ÀÌ¾ß±â´Â ¿µ¿øÈ÷ ³²À» °ÍÀÔ´Ï´Ù." << endl;
+		cout << Name << "ì˜ ë§ˆì§€ë§‰ ìˆ¨ì†Œë¦¬ê°€ ë©ˆì·„ìŠµë‹ˆë‹¤.ë‹¹ì‹ ì˜ ì‹¬ì¥ì€ ì•„ì§ë„ ê³ ë™ì¹˜ë©°, ì‚´ì•„ìˆìŒì„ ì™¸ì¹˜ê³  ìˆìŠµë‹ˆë‹¤." << endl;
+		cout << "ì´ì œ ì„¸ìƒì€ ë‹¹ì‹ ì˜ ìš©ê¸°ë¡œ ì¸í•´ ìƒˆë¡œìš´ ë‚ ì„ ë§ì´í•©ë‹ˆë‹¤.ë‹¹ì‹ ì˜ ì—¬ì •ì€ ëë‚¬ì§€ë§Œ, ë‹¹ì‹ ì˜ ì´ì•¼ê¸°ëŠ” ì˜ì›íˆ ë‚¨ì„ ê²ƒì…ë‹ˆë‹¤." << endl;
 	}
 		
 }

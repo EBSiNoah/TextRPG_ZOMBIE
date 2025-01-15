@@ -5,7 +5,7 @@ using namespace std;
 
 VariantZombie::VariantZombie(const int playerLevel) : Actor("", 0, 0)
 {
-    Name = "º¯Á¾ Á»ºñ";
+    Name = "ë³€ì¢… ì¢€ë¹„";
     MaxHP = RandomUtil::GetRandomInt(playerLevel * 20, playerLevel * 30);
     AttackPower = RandomUtil::GetRandomInt(playerLevel * 5, playerLevel * 10);
     HP = MaxHP;
@@ -30,10 +30,10 @@ void VariantZombie::onHit(int inputAttackPower)
 {
     Actor::onHit(inputAttackPower);
 
-    cout << Name << "´Â " << inputAttackPower << "ÀÇ »óÃ³¸¦ ÀÔ°í °íÅë½º·¯¿î ½ÅÀ½¼Ò¸®¸¦ ³»¸ç ºñÆ²°Å¸³´Ï´Ù.." << endl;
+    cout << Name << "ëŠ” " << inputAttackPower << "ì˜ ìƒì²˜ë¥¼ ìž…ê³  ê³ í†µìŠ¤ëŸ¬ìš´ ì‹ ìŒì†Œë¦¬ë¥¼ ë‚´ë©° ë¹„í‹€ê±°ë¦½ë‹ˆë‹¤.." << endl;
 
     if (isDead())
-        cout << Name << "´Â " << "´ç½ÅÀÇ °ø°ÝÀ¸·Î Á»ºñ°¡ ¹Ù´Ú¿¡ ¾²·¯Áö°í ´õ ÀÌ»ó ¿òÁ÷ÀÌÁö ¾Ê½À´Ï´Ù." << endl;
+        cout << Name << "ëŠ” " << "ë‹¹ì‹ ì˜ ê³µê²©ìœ¼ë¡œ ì¢€ë¹„ê°€ ë°”ë‹¥ì— ì“°ëŸ¬ì§€ê³  ë” ì´ìƒ ì›€ì§ì´ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl;
 }
 
 void VariantZombie::printStatus() const

@@ -14,10 +14,10 @@ using namespace RandomUtil;
 
 void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
 
-    vector<string> battleMentBox = { "µÎ·Á¿ö¼­ ´«¹°¹ü¹÷ÀÌÁö¸¸ ½Î¿öº¸ÀÚ..!", "»ì·ÁÁà¿ä", "´Ù¸®°¡ ÈÄµé°Å¸®Áö¸¸ ½Î¿öº¸ÀÚ..!", "´Ù·¡³¢·Î ÇÑÂÊ´«ÀÌ ¾È º¸ÀÌÁö¸¸ ½Î¿öº¸ÀÚ..."};
+    vector<string> battleMentBox = { "ë‘ë ¤ì›Œì„œ ëˆˆë¬¼ë²”ë²…ì´ì§€ë§Œ ì‹¸ì›Œë³´ì..!", "ì‚´ë ¤ì¤˜ìš”", "ë‹¤ë¦¬ê°€ í›„ë“¤ê±°ë¦¬ì§€ë§Œ ì‹¸ì›Œë³´ì..!", "ë‹¤ë˜ë¼ë¡œ í•œìª½ëˆˆì´ ì•ˆ ë³´ì´ì§€ë§Œ ì‹¸ì›Œë³´ì..."};
     int randomValue = RandomUtil::GetRandomInt(0, battleMentBox.size() - 1);
 
-    cout << "**********  " << zombie->Name << "À»(¸¦) ¸¶ÁÖÃÆ´Ù! " << battleMentBox[randomValue] << "  **********" << endl;
+    cout << "**********  " << zombie->Name << "ì„(ë¥¼) ë§ˆì£¼ì³¤ë‹¤! " << battleMentBox[randomValue] << "  **********" << endl;
 
     while (true) {
         player.onHit(zombie->Attack());
