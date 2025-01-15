@@ -23,7 +23,7 @@ void MenuScene::showMenu(Character& player, BattleScene& battleScene, ZombieFact
         }
         case 2:
             system("cls");
-            shop.displayItems();
+            shop.displayItems(player);
             break;
         case 3:
             system("cls");
