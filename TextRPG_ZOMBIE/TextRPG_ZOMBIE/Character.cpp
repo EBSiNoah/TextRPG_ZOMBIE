@@ -127,18 +127,6 @@ void Character::setMaxHP(const int amount)
     MaxHP = amount;
 }
 
-// Get BoostedTurns
-int Character::getBoostedTurns() const
-{
-    return boostedTurns;
-}
-
-// Set BoostedTurns
-void Character::setBoostedTurns(const int amount)
-{
-    boostedTurns = amount;
-}
-
 // Get Condition
 string Character::getCondition() const
 {
@@ -345,8 +333,8 @@ void Character::printInventory()
     }
 }
 
-// 인벤토리 인덱스, 수량 반환 함수
-vector<pair<const int, const int>> Character::AllInventoryItem() const
+// Get Inventory
+vector<pair<const int, const int>> Character::getInventory() const
 {
     vector<pair<const int, const int>> allItems;
 
@@ -356,4 +344,10 @@ vector<pair<const int, const int>> Character::AllInventoryItem() const
     }
 
     return allItems;
+}
+
+// Set Inventory
+void Character::setInventory(const int itemIndex, const int amount)
+{
+    Inventory[itemIndex] = amount;
 }

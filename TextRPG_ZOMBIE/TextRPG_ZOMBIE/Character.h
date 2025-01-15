@@ -57,12 +57,6 @@ public:
     // Set HP
     void setHP(const int amount);
 
-    // Get boostedTurns
-    int getBoostedTurns() const;
-
-    // Set boostedTurns
-    void setBoostedTurns(const int amount);
-
     // Get MaxHP
     int getMaxHP() const;
 
@@ -100,8 +94,11 @@ public:
     // Inventory 초기화 함수
     void initializeInventory();
     
-    // 인벤토리 인덱스, 수량 반환 함수
-    vector<pair<const int, const int>> AllInventoryItem() const;
+    // Get Inventory
+    vector<pair<const int, const int>> getInventory() const;
+
+    // Set Inventory
+    void setInventory(const int itemIndex, const int amount);
 
 private:
     // 레벨업 처리
