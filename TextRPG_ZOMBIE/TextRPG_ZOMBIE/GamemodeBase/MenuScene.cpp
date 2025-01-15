@@ -1,15 +1,14 @@
-#include "MenuScene.h"
+ï»¿#include "MenuScene.h"
 
 void MenuScene::showMenu(Character& player, BattleScene& battleScene, ZombieFactory& zombieFactory, Shop& shop) {
- 
- 
+
     while (true) {
-        cout << " =====¸Þ´ºÃ¢===== " << endl;
-        cout << " 1. ÀüÅõ ½ÃÀÛ " << endl;
-        cout << " 2. »óÁ¡ " << endl;
-        cout << " 3. »óÅÂ È®ÀÎ " << endl;
-        cout << " 0. °ÔÀÓ Á¾·á " << endl;
-        cout << " ¼±ÅÃ: ";
+        cout << "**********  ìƒì¡´ì„ ìœ„í•œ ì„ íƒ  **********" << endl;
+        cout << "1. ì ê³¼ ë§žì„ ë‹¤(ì „íˆ¬)" << endl;
+        cout << "2. í•„ìš”í•œ ë¬¼ìžë¥¼ ì°¾ëŠ”ë‹¤(ìƒì )" << endl;
+        cout << "3. ê±°ìš¸ë¡œ ìƒíƒœë¥¼ ì ê²€í•œë‹¤(ìƒíƒœ í™•ì¸)" << endl;
+        cout << "0. ëª¨ë“  ê²ƒì„ ëë‚¸ë‹¤...(ê²Œìž„ ì¢…ë£Œ) " << endl;
+        cout << "ë‹¹ì‹ ì˜ ì„ íƒì€ ë¬´ì—‡ìž…ë‹ˆê¹Œ? :";
 
         int choice;
         cin >> choice;
@@ -23,17 +22,17 @@ void MenuScene::showMenu(Character& player, BattleScene& battleScene, ZombieFact
         }
         case 2:
             system("cls");
-            shop.displayItems();
+            shop.displayItems(player);
             break;
         case 3:
             system("cls");
             player.printStatus();
             break;
         case 0:
-            cout << "°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù." << endl;
+            cout << "ëª¨ë“  ê²ƒì„ ëëƒˆìŠµë‹ˆë‹¤. ì´ì   ì¢€ë¹„ë“¤ë„ ë‹¹ì‹ ì„ ì°¾ì§€ ëª»í•  ê²ë‹ˆë‹¤." << endl;
             return;
         default:
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä." << endl;
+            cout << "ì„ íƒê°€ëŠ¥í•œ ë²”ìœ„ì—ì„œ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”. : " << endl;
         }
     }
 }
