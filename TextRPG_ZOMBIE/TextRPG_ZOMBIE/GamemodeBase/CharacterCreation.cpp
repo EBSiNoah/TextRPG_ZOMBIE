@@ -1,22 +1,22 @@
-#include "CharacterCreation.h"
+ï»¿#include "CharacterCreation.h"
 
 Character CharacterCreation::createCharacter() {
     string playerName;
     int choice;
-    cout << "´ç½ÅÀÇ Ä³¸¯ÅÍ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ";
+    cout << "ë‹¹ì‹ ì€ ëˆ„êµ¬ì…ë‹ˆê¹Œ? ì´ë¦„ì„ ë‚¨ê¸°ì„¸ìš”. ê·¸ê²ƒì´ ë‹¹ì‹ ì˜ ìœ ì¼í•œ í”ì ì´ ë ì§€ë„ ëª¨ë¦…ë‹ˆë‹¤. : ";
     cin >> playerName;
 
     while (true) {
-        cout << "Á÷¾÷ ¼±ÅÃ(1. ±ºÀÎ, 2. »ıÁ¸ÀÚ): ";
+        cout << "ì–´ë–¤ë°©ì‹ìœ¼ë¡œ ìƒì¡´í•˜ì‹œê² ìŠµë‹ˆê¹Œ? [1. êµ°ì¸, 2. ìƒì¡´ì] : ";
         cin >> choice;
         if (choice == 1) {
-            return Character(playerName, "±ºÀÎ", 30, 80);
+            return Character(playerName, "êµ°ì¸", 30, 80);
         }
         else if (choice == 2) {
-            return Character(playerName, "»ıÁ¸ÀÚ", 20, 100);
+            return Character(playerName, "ìƒì¡´ì", 20, 100);
         }
         else {
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä." << endl;
+            cout << "ì„ íƒê°€ëŠ¥í•œ ë²”ìœ„ì—ì„œ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”. : " << endl;
         }
     }
 }
