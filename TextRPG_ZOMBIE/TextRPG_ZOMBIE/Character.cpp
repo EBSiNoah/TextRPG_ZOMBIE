@@ -40,9 +40,9 @@ void Character::addItem(const int itemIndex, const int amount)
     }
 
     ItemSetting tempItem(static_cast<ItemType>(itemIndex));
-    std::string itemName = tempItem.getName();
+    string itemName = tempItem.getName();
 
-    std::cout << "아이템 추가: " << itemName << "을(를) " << amount << "개 추가했습니다." << std::endl;
+    cout << "아이템 추가: " << itemName << "을(를) " << amount << "개 추가했습니다." << endl;
 }
 
 // Delete Item
@@ -58,21 +58,21 @@ void Character::deleteItem(const int itemIndex, const int amount)
         {
             // 남은 수량이 제거할 수량보다 적으면 아이템 삭제
             Inventory.erase(itemIndex);
-            std::cout << "아이템이 모두 제거했습니다: "
-                << ItemSetting(static_cast<ItemType>(itemIndex)).getName() << std::endl;
+            cout << "아이템이 모두 제거했습니다: "
+                << ItemSetting(static_cast<ItemType>(itemIndex)).getName() << endl;
             return;
         }
 
         // 아이템 이름 가져오기
         ItemSetting tempItem(static_cast<ItemType>(itemIndex));
-        std::string itemName = tempItem.getName();
+        string itemName = tempItem.getName();
 
-        std::cout << "아이템 차감: " << itemName << "을(를) " << amount
-            << "개 제거했습니다. 남은 수량: " << Inventory[itemIndex] << std::endl;
+        cout << "아이템 차감: " << itemName << "을(를) " << amount
+            << "개 제거했습니다. 남은 수량: " << Inventory[itemIndex] << endl;
     }
     else
     {
-        std::cout << "제거하려는 아이템이 없습니다." << std::endl;
+        cout << "제거하려는 아이템이 없습니다." << endl;
     }
 }
 
@@ -316,19 +316,32 @@ void Character::initializeInventory()
 // Inventory 출력
 void Character::printInventory()
 {
-    std::cout << "보유 아이템 : ";
+    cout << "보유 아이템 : ";
     for (const auto& item : Inventory)
     {
         if (item.second > 0)
         {
             // ItemSetting 객체를 생성하여 이름 가져오기
             ItemSetting tempItem(static_cast<ItemType>(item.first));
-            std::string itemName = tempItem.getName();
-            std::cout << itemName << "(" << item.second << "), ";
+            string itemName = tempItem.getName();
+            cout << itemName << "(" << item.second << "), ";
         }
         else
         {
             continue;
         }
     }
+}
+
+// 인벤토리 인덱스, 수량 반환 함수
+vector<pair<const int, const int>> Character::AllInventoryItem() const
+{
+    vector<pair<const int, const int>> allItems;
+
+    for (const auto& item : Inventory)
+    {
+        allItems.emplace_back(item.first, item.second);
+    }
+
+    return allItems;
 }

@@ -91,9 +91,11 @@ public:
     //bool useShield(int inputAttackPower); // 일회용 방패 아이템
     //void useWoodenSword(); // 목검 아이템
 
+    // Inventory 초기화 함수
+    void initializeInventory();
+    
 
-    void initializeInventory(); // Inventory2 초기화 함수
-    void printInventory();      // Inventory2 상태 출력
+    vector<pair<const int, const int>> AllInventoryItem() const;
 
 private:
     // 레벨업 처리
@@ -101,4 +103,7 @@ private:
 
     // 감염
     void Infect();
+
+    // Inventory 상태 출력
+    void printInventory();  
 };
