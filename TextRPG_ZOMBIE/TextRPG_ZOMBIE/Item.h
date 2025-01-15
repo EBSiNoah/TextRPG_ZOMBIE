@@ -13,15 +13,23 @@ enum ItemType // 모든 아이템 목록
 	Methylamphetamine,
 	Fentanyl,
 	Revital,
+	WoodenSword,
+	Shield,
+	Vaccine,
 	Max
 };
 
+<<<<<<< Updated upstream
 class Items // 아이템 설정 및 사용효과
+=======
+class ItemSetting // 아이템 설정 및 사용효과
+>>>>>>> Stashed changes
 {
 protected:
 	string Name;
 	ItemType itemtype;
 	int Price;
+<<<<<<< Updated upstream
 	int CurrentStack;
 	int MaxStack;
 	// getter setter 필요 상점에서 써야됨
@@ -52,4 +60,23 @@ class Inventory
 {
 public:
 	Items item[ItemType::Max];
+=======
+
+public:
+	ItemSetting(ItemType type);
+
+	virtual void use(Character* chara);
+
+	// 상점용 getter
+	string getName() const { return Name; }
+	ItemType getItemType() const { return itemtype; }
+	int getPrice() const { return Price; }
+
+
+	// 상점용 setter
+	void setName(const string& newName) { Name = newName; }
+	void setItemType(ItemType newType) { itemtype = newType; }
+	void setPrice(int newPrice) { Price = newPrice; }
+
+>>>>>>> Stashed changes
 };
