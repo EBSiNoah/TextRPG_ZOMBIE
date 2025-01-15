@@ -3,7 +3,7 @@
 #include "Character.h"
 #include "RandomUtil.h"
 
-// Character.hÀÇ ÀÎº¥Åä¸® ±¸ÇöÀ» º¸°í dropItemÀÇ °æ·Î ¼öÁ¤
+// Character.hì˜ ì¸ë²¤í† ë¦¬ êµ¬í˜„ì„ ë³´ê³  dropItemì˜ ê²½ë¡œ ìˆ˜ì •
 class MonsterDropItem
 {
 public:

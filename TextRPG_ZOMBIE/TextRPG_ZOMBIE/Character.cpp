@@ -1,4 +1,4 @@
-﻿#include "Character.h"
+#include "Character.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -58,7 +58,7 @@ void Character::deleteItem(const int itemIndex, const int amount)
         {
             // 남은 수량이 제거할 수량보다 적으면 아이템 삭제
             Inventory.erase(itemIndex);
-            cout << "아이템이 모두 제거했습니다: "
+            cout << "아이템이 모두 제거되었습니다: "
                 << ItemSetting(static_cast<ItemType>(itemIndex)).getName() << endl;
             return;
         }
@@ -173,7 +173,7 @@ void Character::setMoney(int amount) {
 void Character::gainMoney(int amount)
 {
     setMoney(Money + amount);
-    cout << "돈 획득: " << amount << " (보유 돈 : " << Money << ")" << endl;
+    cout << "골드 획득: " << amount << " (보유 골드 : " << Money << ")" << endl;
 }
 
 // Pay money

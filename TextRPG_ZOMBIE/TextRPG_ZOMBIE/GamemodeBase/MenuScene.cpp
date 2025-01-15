@@ -1,4 +1,4 @@
-﻿#include "MenuScene.h"
+#include "MenuScene.h"
 
 void MenuScene::showMenu(Character& player, BattleScene& battleScene, ZombieFactory& zombieFactory, Shop& shop) {
 
@@ -6,9 +6,9 @@ void MenuScene::showMenu(Character& player, BattleScene& battleScene, ZombieFact
         cout << "**********  생존을 위한 선택  **********" << endl;
         cout << "1. 적과 맞선다(전투)" << endl;
         cout << "2. 필요한 물자를 찾는다(상점)" << endl;
-        cout << "3. 거울로 상태를 점검한다(상태 확인)" << endl;
-        cout << "0. 모든 것을 끝낸다...(게임 종료) " << endl;
-        cout << "당신의 선택은 무엇입니까? :";
+        cout << "3. 거울로 상태를 점검한다(상태확인)" << endl;
+        cout << "0. 모든 것을 끝낸다...(게임종료)" << endl;
+        cout << "당신의 선택은 무엇입니까? : ";
 
         int choice;
         cin >> choice;

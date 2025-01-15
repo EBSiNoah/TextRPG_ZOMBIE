@@ -1,49 +1,49 @@
 #include "Item.h"
 #include "Character.h"
 
-// »ı¼ºÀÚ ±¸Çö (ÃÊ±âÈ­ °ªÀ» ³Ö°Å³ª, ±âº»°ª ¼³Á¤)
+// ìƒì„±ì êµ¬í˜„ (ì´ˆê¸°í™” ê°’ì„ ë„£ê±°ë‚˜, ê¸°ë³¸ê°’ ì„¤ì •)
 ItemSetting::ItemSetting(ItemType type)
     : Name(""), itemtype(type), Price(0)
 {
     switch (itemtype)
     {
     case Morphine:
-        Name = "¸ğ¸£ÇÉ";
+        Name = "ëª¨ë¥´í•€";
         Price = 50;
         break;
 
     case Epinephrine:
-        Name = "¿¡ÇÇ³×ÇÁ¸°";
+        Name = "ì—í”¼ë„¤í”„ë¦°";
         Price = 60;
         break;
 
     case Methylamphetamine:
-        Name = "¸Ş½º¾ÏÆäÅ¸¹Î";
+        Name = "ë©”ìŠ¤ì•”í˜íƒ€ë¯¼";
         Price = 70;
         break;
 
     case Fentanyl:
-        Name = "ÆæÅ¸´Ò";
+        Name = "íœíƒ€ë‹";
         Price = 80;
         break;
 
     case Revital:
-        Name = "·¹ºñÅ»";
+        Name = "ë ˆë¹„íƒˆ";
         Price = 100;
         break;
 
     case WoodenSword:
-        Name = "¸ñ°Ë";
+        Name = "ëª©ê²€";
         Price = 75;
         break;
 
     case Shield:
-        Name = "ÀÏÈ¸¿ë ¹æÆĞ";
+        Name = "ì¼íšŒìš© ë°©íŒ¨";
         Price = 70;
         break;
 
     case Vaccine:
-        Name = "¹ÙÀÌ·¯½º ¹é½Å";
+        Name = "ë°”ì´ëŸ¬ìŠ¤ ë°±ì‹ ";
         Price = 50;
         break;
     }
@@ -53,10 +53,10 @@ void ItemSetting::use(Character* chara)
 {
     int key = static_cast<int>(itemtype);
 
-    // Ä³¸¯ÅÍ ÀÎº¥Åä¸®
+    // ìºë¦­í„° ì¸ë²¤í† ë¦¬
     vector<pair<const int, const int>> inv = chara->getInventory();
 
-    // ¾ÆÀÌÅÛÀÇ ÇöÀç ¼ÒÁö °³¼ö Ã¼Å©
+    // ì•„ì´í…œì˜ í˜„ì¬ ì†Œì§€ ê°œìˆ˜ ì²´í¬
     int count = 0;
     bool found = false;
     for (const auto& p : inv) 
@@ -69,45 +69,45 @@ void ItemSetting::use(Character* chara)
         }
     }
 
-    // ¾ÆÀÌÅÛÀÌ ¾ø°Å³ª ¼ö·®ÀÌ 0ÀÏ°æ¿ì Á¾·á
+    // ì•„ì´í…œì´ ì—†ê±°ë‚˜ ìˆ˜ëŸ‰ì´ 0ì¼ê²½ìš° ì¢…ë£Œ
     if (!found || count < 1)
         return;
 
-    // ¾ÆÀÌÅÛ »ç¿ë½Ã °¹¼ö -1
+    // ì•„ì´í…œ ì‚¬ìš©ì‹œ ê°¯ìˆ˜ -1
     chara->setInventory(key, count - 1);
 
     switch (itemtype)
     {
     case Morphine:
-        cout << "Ã¼·Â 50 È¸º¹!";
+        cout << "ì²´ë ¥ 50 íšŒë³µ!";
         chara->HP += 50;
         if (chara->HP > chara->MaxHP)
             chara->HP = chara->MaxHP;
         break;
 
     case Epinephrine:
-        cout << "°ø°İ·Â 10 Áõ°¡!";
+        cout << "ê³µê²©ë ¥ 10 ì¦ê°€!";
         chara->AttackPower += 10;
         break;
 
     case Methylamphetamine:
-        cout << "°ø°İ·Â 50 Áõ°¡!";
+        cout << "ê³µê²©ë ¥ 50 ì¦ê°€!";
         chara->AttackPower += 50;
         break;
 
     case Fentanyl:
         if (chara->MaxHP < 31) 
         {
-            // ÃÖ´ë Ã¼·ÂÀÌ 30ÀÌÇÏ¶ó¸é ÃÖ´ë Ã¼·ÂÀ» 1·Î ¸¸µì´Ï´Ù.
+            // ìµœëŒ€ ì²´ë ¥ì´ 30ì´í•˜ë¼ë©´ ìµœëŒ€ ì²´ë ¥ì„ 1ë¡œ ë§Œë“­ë‹ˆë‹¤.
             chara->MaxHP = 1;
-            cout << "¾à¹° ¿À¿ëÀ¸·Î ÃÖ´ë Ã¼·ÂÀÌ 1ÀÌ µÇ¾ú½À´Ï´Ù." << endl;
+            cout << "ì•½ë¬¼ ì˜¤ìš©ìœ¼ë¡œ ìµœëŒ€ ì²´ë ¥ì´ 1ì´ ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
             chara->HP += 5000;
             if (chara->HP > chara->MaxHP)
                 chara->HP = chara->MaxHP;
         }
         else 
         {
-            cout << "ÃÖ´ë Ã¼·Â 30 °¨¼Ò, Ã¼·Â 5000 È¸º¹!" << endl;
+            cout << "ìµœëŒ€ ì²´ë ¥ 30 ê°ì†Œ, ì²´ë ¥ 5000 íšŒë³µ!" << endl;
             chara->MaxHP -= 30;
             chara->HP += 5000;
             if (chara->HP > chara->MaxHP)
@@ -116,7 +116,7 @@ void ItemSetting::use(Character* chara)
         break;
 
     case Revital:
-        cout << "ÃÖ´ë Ã¼·Â 80 Áõ°¡!";
+        cout << "ìµœëŒ€ ì²´ë ¥ 80 ì¦ê°€!";
         chara->MaxHP += 80;
         chara->HP += 80;
         break;
@@ -125,23 +125,23 @@ void ItemSetting::use(Character* chara)
         if (chara->getBoostedTurns() == 0)
         {
             chara->setBoostedTurns(3);
-            cout << "3ÅÏ µ¿¾È °ø°İ·ÂÀÌ 2¹è·Î Áõ°¡ÇÕ´Ï´Ù!" << endl;
+            cout << "3í„´ ë™ì•ˆ ê³µê²©ë ¥ì´ 2ë°°ë¡œ ì¦ê°€í•©ë‹ˆë‹¤!" << endl;
         }
         break;
 
     case Shield:
-        cout << chara->Name << "ÀÌ(°¡) ÀÏÈ¸¿ë ¹æÆĞ¸¦ »ç¿ëÇÏ¿© ÇÇÇØ¸¦ ¹æ¾îÇß½À´Ï´Ù!" << endl;
+        cout << chara->Name << "ì´(ê°€) ì¼íšŒìš© ë°©íŒ¨ë¥¼ ì‚¬ìš©í•˜ì—¬ í”¼í•´ë¥¼ ë°©ì–´í–ˆìŠµë‹ˆë‹¤!" << endl;
         break;
 
     case Vaccine:
-        if (chara->getCondition() == "°Ç°­") 
+        if (chara->getCondition() == "ê±´ê°•") 
         {
-            cout << "°¨¿° »óÅÂ°¡ ¾Æ´Õ´Ï´Ù." << endl;
+            cout << "ê°ì—¼ ìƒíƒœê°€ ì•„ë‹™ë‹ˆë‹¤." << endl;
         }
-        else if (chara->getCondition() == "°¨¿°") 
+        else if (chara->getCondition() == "ê°ì—¼") 
         {
-            chara->setCondition("°Ç°­");
-            cout << "°¨¿° »óÅÂ°¡ È¸º¹µÇ¾ú½À´Ï´Ù!" << endl;
+            chara->setCondition("ê±´ê°•");
+            cout << "ê°ì—¼ ìƒíƒœê°€ íšŒë³µë˜ì—ˆìŠµë‹ˆë‹¤!" << endl;
         }
         break;
     }

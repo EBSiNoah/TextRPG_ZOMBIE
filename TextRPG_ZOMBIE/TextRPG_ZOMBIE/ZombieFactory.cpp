@@ -16,12 +16,11 @@ unique_ptr<Actor> ZombieFactory::CreateZombie(const int playerLevel)
 {
     int randomValue = RandomUtil::GetRandomInt(1, 3);
 
-    // Player ·¹º§ÀÌ 10 ÀÌ»óÀÏ ¶§ º¸½º Á»ºñ »ı¼º
+    // Player ë ˆë²¨ì´ 10 ì´ìƒì¼ ë•Œ ë³´ìŠ¤ ì¶œí˜„
     if (playerLevel >= 10)
         return make_unique<BossZombie>(playerLevel);
 
-    // ·£´ıÀ¸·Î ³ª¿Â °ªÀ» ¹ÙÅÁÀ¸·Î Á»ºñ »ı¼º
-    // TODO : main¿¡¼­ ·£´ı °ª Á¤ÀÇÇÏ°í Á»ºñ Å¸ÀÔ¸¸ ³Ö¾î¼­ ÇÏ´Â ¿ÏÀüÈ÷ ºĞ¸®µÈ Á»ºñÆÑÅä¸® ¸¸µé¸é ÁÁÀ»µí
+    // ëœë¤ìœ¼ë¡œ ì¢€ë¹„ ê°ì²´ ìƒì„±
     switch (randomValue)
     {
     case 1:

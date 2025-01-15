@@ -19,15 +19,15 @@ int main() {
     CharacterCreation characterCreation;
     MenuScene menuScene;
 
-    openingScene.showOpening(); // ¿ÀÇÁ´×
-    Character player = characterCreation.createCharacter(); // Ä³¸¯ÅÍ »ý¼º
+    openingScene.showOpening(); // ì˜¤í”„ë‹
+    Character player = characterCreation.createCharacter(); // ìºë¦­í„° ìƒì„±
     system("cls");
     player.gainMoney(1000);
-    menuScene.showMenu(player, battleScene, zombieFactory, shop); // ¼±ÅÃ¸Þ´º
+    menuScene.showMenu(player, battleScene, zombieFactory, shop); // ì„ íƒë©”ë‰´
     
     //EndingScene endingScene;
-    //endingScene.showEnding(player.getHP() > 0, player.getName(), "Á»ºñ º¸½º"); // ¿£µù
+    //endingScene.showEnding(player.getHP() > 0, player.getName(), "ì¢€ë¹„ ë³´ìŠ¤"); // ì—”ë”©
 
     return 0;
 }
-//¿ÀÇÁ´× -> »ý¼º -> ¼±ÅÃ¸Þ´º -> ÀüÅõ
+//ì˜¤í”„ë‹ -> ìƒì„± -> ì„ íƒë©”ë‰´ -> ì „íˆ¬

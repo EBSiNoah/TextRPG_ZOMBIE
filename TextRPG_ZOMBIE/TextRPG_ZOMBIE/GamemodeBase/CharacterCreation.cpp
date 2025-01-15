@@ -1,4 +1,4 @@
-﻿#include "CharacterCreation.h"
+#include "CharacterCreation.h"
 
 Character CharacterCreation::createCharacter() {
     string playerName;

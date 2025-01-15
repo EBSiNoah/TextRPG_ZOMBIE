@@ -5,21 +5,21 @@ void MonsterDropItem::dropItem(Character* chara)
     int droptable = RandomUtil::GetRandomInt(0, 100);
     int dropcheck = RandomUtil::GetRandomInt(0, 100);
 
-    // ÇÊ¼ö ±¸Çö°úÁ¦: 30% È®·ü·Î ¾ÆÀÌÅÛ µå¶ø
-    // 30% È®·ü·Î droptable¿¡¼­ Àü¸®Ç° È¹µæ À¯¹« °áÁ¤
-    // ÀÌÈÄ °¢ ¾ÆÀÌÅÛ µå¶ø È®·ü
-    // ¸ğ¸£ÇÉ : 25%
-    // ¿¡ÇÇ³×ÇÁ¸° : 25%
-    // ¹é½Å : 20%
-    // ¸Ş½º¾ÏÆäÅ¸¹Î : 10%
-    // ÆæÅ¸´Ò : 10%
-    // ·¹ºñÅ» : 10%
+    // í•„ìˆ˜ êµ¬í˜„ê³¼ì œ: 30% í™•ë¥ ë¡œ ì•„ì´í…œ ë“œë
+    // 30% í™•ë¥ ë¡œ droptableì—ì„œ ì „ë¦¬í’ˆ íšë“ ìœ ë¬´ ê²°ì •
+    // ì´í›„ ê° ì•„ì´í…œ ë“œë í™•ë¥ 
+    // ëª¨ë¥´í•€ : 25%
+    // ì—í”¼ë„¤í”„ë¦° : 25%
+    // ë°±ì‹  : 20%
+    // ë©”ìŠ¤ì•”í˜íƒ€ë¯¼ : 10%
+    // íœíƒ€ë‹ : 10%
+    // ë ˆë¹„íƒˆ : 10%
 
     if (droptable <= 30)
     {
         if (dropcheck <= 25)
         {
-            // ¸ğ¸£ÇÉ µå¶ø
+            // ëª¨ë¥´í•€ ë“œë
             int count = 0;
             vector<pair<const int, const int>> inv = chara->getInventory();
             for (const auto& p : inv)
@@ -31,11 +31,11 @@ void MonsterDropItem::dropItem(Character* chara)
                 }
             }
             chara->setInventory(static_cast<int>(Morphine), count + 1);
-            cout << "Àü¸®Ç°À¸·Î '¸ğ¸£ÇÉ'À» ¾ò¾ú½À´Ï´Ù!" << endl;
+            cout << "ì „ë¦¬í’ˆìœ¼ë¡œ 'ëª¨ë¥´í•€'ì„ ì–»ì—ˆìŠµë‹ˆë‹¤!" << endl;
         }
         else if (dropcheck <= 50)
         {
-            // ¿¡ÇÇ³×ÇÁ¸° µå¶ø
+            // ì—í”¼ë„¤í”„ë¦° ë“œë
             int count = 0;
             vector<pair<const int, const int>> inv = chara->getInventory();
             for (const auto& p : inv)
@@ -47,11 +47,11 @@ void MonsterDropItem::dropItem(Character* chara)
                 }
             }
             chara->setInventory(static_cast<int>(Epinephrine), count + 1);
-            cout << "Àü¸®Ç°À¸·Î '¿¡ÇÇ³×ÇÁ¸°'À» ¾ò¾ú½À´Ï´Ù!" << endl;
+            cout << "ì „ë¦¬í’ˆìœ¼ë¡œ 'ì—í”¼ë„¤í”„ë¦°'ì„ ì–»ì—ˆìŠµë‹ˆë‹¤!" << endl;
         }
         else if (dropcheck <= 70)
         {
-            // ¹é½Å µå¶ø
+            // ë°±ì‹  ë“œë
             int count = 0;
             vector<pair<const int, const int>> inv = chara->getInventory();
             for (const auto& p : inv)
@@ -63,11 +63,11 @@ void MonsterDropItem::dropItem(Character* chara)
                 }
             }
             chara->setInventory(static_cast<int>(Vaccine), count + 1);
-            cout << "Àü¸®Ç°À¸·Î '¿¡ÇÇ³×ÇÁ¸°'À» ¾ò¾ú½À´Ï´Ù!" << endl;
+            cout << "ì „ë¦¬í’ˆìœ¼ë¡œ 'ì—í”¼ë„¤í”„ë¦°'ì„ ì–»ì—ˆìŠµë‹ˆë‹¤!" << endl;
         }
         else if (dropcheck <= 80)
         {
-            // ¸Ş½º¾ÏÆäÅ¸¹Î µå¶ø
+            // ë©”ìŠ¤ì•”í˜íƒ€ë¯¼ ë“œë
             int count = 0;
             vector<pair<const int, const int>> inv = chara->getInventory();
             for (const auto& p : inv)
@@ -79,11 +79,11 @@ void MonsterDropItem::dropItem(Character* chara)
                 }
             }
             chara->setInventory(static_cast<int>(Methylamphetamine), count + 1);
-            cout << "Àü¸®Ç°À¸·Î '¸Ş½º¾ÏÆäÅ¸¹Î'À» ¾ò¾ú½À´Ï´Ù!" << endl;
+            cout << "ì „ë¦¬í’ˆìœ¼ë¡œ 'ë©”ìŠ¤ì•”í˜íƒ€ë¯¼'ì„ ì–»ì—ˆìŠµë‹ˆë‹¤!" << endl;
         }
         else if (dropcheck <= 90)
         {
-            // ÆæÅ¸´Ò µå¶ø
+            // íœíƒ€ë‹ ë“œë
             int count = 0;
             vector<pair<const int, const int>> inv = chara->getInventory();
             for (const auto& p : inv)
@@ -95,11 +95,11 @@ void MonsterDropItem::dropItem(Character* chara)
                 }
             }
             chara->setInventory(static_cast<int>(Fentanyl), count + 1);
-            cout << "Àü¸®Ç°À¸·Î 'ÆæÅ¸´Ò'À» ¾ò¾ú½À´Ï´Ù!" << endl;
+            cout << "ì „ë¦¬í’ˆìœ¼ë¡œ 'íœíƒ€ë‹'ì„ ì–»ì—ˆìŠµë‹ˆë‹¤!" << endl;
         }
         else if (dropcheck <= 100)
         {
-            // ·¹ºñÅ» µå¶ø
+            // ë ˆë¹„íƒˆ ë“œë
             int count = 0;
             vector<pair<const int, const int>> inv = chara->getInventory();
             for (const auto& p : inv)
@@ -111,7 +111,7 @@ void MonsterDropItem::dropItem(Character* chara)
                 }
             }
             chara->setInventory(static_cast<int>(Revital), count + 1);
-            cout << "Àü¸®Ç°À¸·Î '·¹ºñÅ»'À» ¾ò¾ú½À´Ï´Ù!" << endl;
+            cout << "ì „ë¦¬í’ˆìœ¼ë¡œ 'ë ˆë¹„íƒˆ'ì„ ì–»ì—ˆìŠµë‹ˆë‹¤!" << endl;
         }
     }
 
