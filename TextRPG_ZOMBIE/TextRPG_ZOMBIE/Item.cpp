@@ -2,13 +2,8 @@
 #include "Character.h"
 
 // 생성자 구현 (초기화 값을 넣거나, 기본값 설정)
-<<<<<<< Updated upstream
-Items::Items(ItemType type)
-    : Name(""), itemtype(type), Price(0), CurrentStack(0), MaxStack(0)
-=======
 ItemSetting::ItemSetting(ItemType type)
     : Name(""), itemtype(type), Price(0)
->>>>>>> Stashed changes
 {
     switch (itemtype)
     {
@@ -54,22 +49,13 @@ ItemSetting::ItemSetting(ItemType type)
     }
 }
 
-<<<<<<< Updated upstream
-void Items::use(Character* chara)
+void ItemSetting::use(Character* chara)
 {
+    //CurrentStack을 캐릭터 인벤토리의 소지갯수로 변경
     if (CurrentStack < 1)
         return;
     // 아이템 사용 후 감소
     --CurrentStack;
-=======
-void ItemSetting::use(Character* chara)
-{
-    //CurrentStack을 캐릭터 인벤토리의 소지갯수로 변경
-    //if (CurrentStack < 1)
-    //    return;
-    //// 아이템 사용 후 감소
-    //--CurrentStack;
->>>>>>> Stashed changes
 
     switch (itemtype)
     {
@@ -104,23 +90,13 @@ void ItemSetting::use(Character* chara)
         chara->MaxHP += 80;
         chara->HP += 80;
         break;
-<<<<<<< Updated upstream
-=======
 
     case WoodenSword:
-        if (chara->boostedTurns == 0)
+        // 목검 효과: boostedTurns를 3으로 설정 (3턴 동안 효과)
+        if (chara->getBoostedTurns() == 0) 
         {
-            auto it = chara->Inventory2.find("목검");
-            if (it != chara->Inventory2.end() && it->second > 0)
-            {
-                chara->boostedTurns = 3; // 3턴 동안 효과 유지
-                it->second--;     // 목검 소모
-                if (it->second == 0)
-                {
-                    chara->Inventory2.erase(it); // 남은 개수가 0이면 제거
-                }
-                cout << Name << "이(가) 목검을 사용했습니다! 3턴 동안 공격력이 2배로 증가합니다." << endl;
-            }
+            chara->setBoostedTurns(3);
+            cout << "3턴 동안 공격력이 2배로 증가합니다!" << endl;
         }
         break;
 
@@ -129,14 +105,15 @@ void ItemSetting::use(Character* chara)
         break;
 
     case Vaccine:
-        if (chara->getCondition() == "건강") {
+        if (chara->getCondition() == "건강") 
+        {
             cout << "감염 상태가 아닙니다." << endl;
         }
-        else if (chara->getCondition() == "감염") {
+        else if (chara->getCondition() == "감염") 
+        {
             chara->setCondition("건강");
             cout << "감염 상태가 회복되었습니다!" << endl;
         }
         break;
->>>>>>> Stashed changes
     }
 }
