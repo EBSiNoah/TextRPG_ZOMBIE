@@ -42,21 +42,22 @@
 
 ## 주요 기능
 - Actor class
-<pre>```cpp
-  class Actor{
-  private:
-  string Name;
-  int AttackPower;
-  int HP;
-  int MaxHP;
-  public:
-  Actor();
-  Actor(string inputName, int inputAttackPower, int inputMaxHP);
+```c++
+class Actor
+{
+private:
+	string Name;
+	int AttackPower;
+	int HP;
+	int MaxHP;
+public:
+	Actor();
+	Actor(string inputName, int inputAttackPower, int inputMaxHP);
   virtual int Attack();
-  virtual void onHit(int inputAttackPower);
-  bool isDead();
-  void printStatus();
-  };```</pre>
+	virtual void onHit(int inputAttackPower);
+	bool isDead();
+	void printStatus();
+};```
 - Character class
 - Various Zombie class
 - Item class
