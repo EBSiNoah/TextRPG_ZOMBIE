@@ -42,7 +42,7 @@
 
 ## 주요 기능
 - Actor class
-```c++
+<pre>```c++
 class Actor
 {
 private:
@@ -57,7 +57,7 @@ public:
 	virtual void onHit(int inputAttackPower);
 	bool isDead();
 	void printStatus();
-};```
+};```</pre>
 - Character class
 - Various Zombie class
 - Item class
