@@ -33,6 +33,9 @@ public:
 
 	virtual void use(Character* chara);
 
+	// onHit가 호출될 때 방패 사용 여부를 확인하는 정적 함수 추가
+	static bool ShieldCheck(Character* chara, int inputAttackPower);
+
 	// 상점용 getter
 	string getName() const { return Name; }
 	ItemType getItemType() const { return itemtype; }

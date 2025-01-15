@@ -129,10 +129,6 @@ void ItemSetting::use(Character* chara)
         }
         break;
 
-    case Shield:
-        cout << chara->Name << "이(가) 일회용 방패를 사용하여 피해를 방어했습니다!" << endl;
-        break;
-
     case Vaccine:
         if (chara->getCondition() == "건강") 
         {
@@ -145,4 +141,37 @@ void ItemSetting::use(Character* chara)
         }
         break;
     }
+}
+
+
+bool ItemSetting::ShieldCheck(Character* chara, int inputAttackPower)
+{
+    // 캐릭터 인벤토리 가져오기
+    auto inventory = chara->getInventory();
+
+    // 일회용 방패를 찾는다
+    // (enum 값이 Shield 이고, inventory에서는 <itemIndex, amount> 형태)
+    // Shield의 enum 값이 6 이므로 (ItemType::Shield)
+    int shieldKey = static_cast<int>(ItemType::Shield);
+
+    // 방패가 1개 이상 있는지 확인
+    for (auto& item : inventory)
+    {
+        if (item.first == shieldKey && item.second > 0)
+        {
+            // 현재 체력과 공격력을 비교
+            if (chara->getHP() <= inputAttackPower)
+            {
+                // 방패 사용 => 개수 -1
+                chara->setInventory(shieldKey, item.second - 1);
+
+                // 방패 사용 시 피해 무효화
+                cout << chara->Name << "이(가) 일회용 방패를 사용하여 피해를 방어했습니다!" << endl;
+                return true;
+            }
+            break;
+        }
+    }
+    // 방패를 사용할 상황이 아니면 false
+    return false;
 }
