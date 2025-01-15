@@ -99,7 +99,7 @@ void Shop::sellItem(Character& character)
         cout << itemList[item_idx].getName() << "자원 판매 개수를 입력해주세요: ";
         cin >> item_amount;
 
-        if (character.getInventory()[item_idx].second > item_amount)
+        if (character.getInventory()[item_idx].second < item_amount)
         {
             cout << "보유중인 자원보다 더 많은 자원을 판매할 수 없습니다." << endl;
             return;
@@ -118,6 +118,6 @@ void Shop::sellItem(Character& character)
 
 Shop::~Shop()
 {
-    cout << "   물자 거래소가 종료되었습니다. " << endl;
+    cout << setw(10) << "물자 거래소가 종료되었습니다. " << endl;
     cout << "========================================================" << endl;
 }
