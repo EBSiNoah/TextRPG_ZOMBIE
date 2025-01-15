@@ -197,6 +197,7 @@ void Character::printStatus()
 {
     cout << "\nLv." << Level << " " << Name << "(" << Job << ")" << endl;
     cout << "HP : " << HP << "/" << MaxHP << "(" << Condition << ")" << endl;
+    cout << "AttackPower : " << AttackPower << endl;
     cout << "EXP: " << Exp << "/" << MaxExp << endl;
     cout << "돈 : " << Money << endl;
     printInventory();
@@ -302,7 +303,7 @@ int Character::Attack()
 //        }
 //    }
 //}
-dd
+
 
 // Inventory 초기화
 void Character::initializeInventory()

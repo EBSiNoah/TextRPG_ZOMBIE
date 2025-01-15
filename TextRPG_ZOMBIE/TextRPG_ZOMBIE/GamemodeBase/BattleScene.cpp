@@ -4,6 +4,7 @@
 #include <ctime>
 #include <Windows.h>
 #include <stdio.h>
+#include "../MonsterDropItem.h"
 
 
 using namespace std;
@@ -19,6 +20,10 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
         zombie->onHit(player.Attack());
         Sleep(1000);
         cout << "\n";
-        if (zombie->HP <= 0) break;
+        if (zombie->HP <= 0)
+        {
+
+            break;
+        }
     }
 }

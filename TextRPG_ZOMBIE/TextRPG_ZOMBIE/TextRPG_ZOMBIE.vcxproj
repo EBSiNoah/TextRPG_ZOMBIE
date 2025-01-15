@@ -138,6 +138,7 @@
     <ClCompile Include="HalfZombie.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MonsterDropItem.cpp" />
     <ClCompile Include="NormalZombie.cpp" />
     <ClCompile Include="RandomUtil.cpp" />
     <ClCompile Include="Shop.cpp" />

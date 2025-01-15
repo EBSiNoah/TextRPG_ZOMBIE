@@ -29,14 +29,6 @@ int main() {
 
     menuScene.showMenu(player, battleScene, zombieFactory, shop); // 선택메뉴
     
-    //Character player(playerName, "군인", 30, 80);
-    //BattleScene battleScene;
-    //ZombieFactory zombieFactory;
-    
-    //MenuScene menuScene;
-
-    //menuScene.showMenu(player, battleScene, zombieFactory, shop); // 선택 메뉴
-
     //EndingScene endingScene;
     //endingScene.showEnding(player.getHP() > 0, player.getName(), "좀비 보스"); // 엔딩
 
