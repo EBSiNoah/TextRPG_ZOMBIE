@@ -19,16 +19,16 @@ void Shop::displayItems(Character& character)
 {
 
 
-    cout << setw(30) << "물자 거래소" << endl;
+    cout << setw(35) << "물자 거래소" << endl;
     cout << "========================================================" << endl;
-    cout << setw(4) << "번호";
+    cout << setw(10) << "번호";
     cout << setw(15) << "아이템";
     cout << setw(10) << "구매가격";
     cout << setw(10) << "판매가격" << endl;
     cout << "========================================================" << endl;
 
     for (const auto& item : itemList) {
-        cout << setw(4) << item.getItemType();
+        cout << setw(10) << item.getItemType();
         cout << setw(15) << item.getName();
         cout << setw(10) << item.getPrice();
         cout << setw(10) << item.getPrice() * 0.6;
@@ -72,17 +72,13 @@ void Shop::buyItem(Character& character)
 
     if (character.getMoney() > item_amount * itemList[item_idx].getPrice())
     {
-        //character.addItem(itemList[item_idx].getName(), item_amount);
-       //character.payMoney(itemList[item_idx].getPrice());
+        character.addItem(item_idx, item_amount);
+        character.payMoney(itemList[item_idx].getPrice());
     }
     else
     {
         cout << "가진 돈 보다 많은 돈을 지불할 수 없습니다." << endl;
     }
-
-
-    cout << itemList[item_idx].getName() << "자원을 "/* << character.getInventory(item_idx)*/ << "개 보유중입니다." << endl;
-
 
 }
 void Shop::sellItem(Character& character)
@@ -98,19 +94,19 @@ void Shop::sellItem(Character& character)
         return;
     }
 
-    if (/*character.getInventory(item_idx) > 0*/true)
+    if (character.getInventory()[item_idx].second > 0)
     {
         cout << itemList[item_idx].getName() << "자원 판매 개수를 입력해주세요: ";
         cin >> item_amount;
 
-        if (/*character.getInventory(item_idx) > item_amount*/true)
+        if (character.getInventory()[item_idx].second > item_amount)
         {
             cout << "보유중인 자원보다 더 많은 자원을 판매할 수 없습니다." << endl;
             return;
         }
 
         character.gainMoney(itemList[item_idx].getPrice() * 0.6);
-        // 인벤토리에서 삭제 추가
+        character.deleteItem(item_idx, item_amount);
         cout << "남은 돈 : " << character.getMoney();
     }
     else
