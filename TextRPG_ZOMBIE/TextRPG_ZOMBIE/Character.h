@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include <vector>
 #include <map>
+#include "Item.h"
 
 class Character : public Actor {
 private:
@@ -12,8 +13,8 @@ private:
     int Money;
     string Condition;
     int boostedTurns;
-    map<string, int> Inventory;
-    map<int, int> Inventory2;
+    //map<string, int> Inventory;
+    map<int, int> Inventory;
 
 public:
     // 기본 생성자
@@ -23,7 +24,11 @@ public:
     Character(string inputName, string inputJob, int inputAttackPower, int inputMaxHP);
 
     // 아이템 추가
-    void addItem(const string& itemName, int amount);
+    //void addItem(const string& itemName, int amount);
+    void addItem(const int itemIndex, const int amount);
+
+    // 아이템 제거
+    void deleteItem(const int itemIndex, const int amount);
 
     // 경험치 획득
     void gainExp(int amount);
@@ -33,6 +38,12 @@ public:
 
     // Set Money
     void setMoney(int amount);
+
+    // Get boostedTurns
+    int getBoostedTurns() const;
+
+    // Set boostedTurns
+    void setBoostedTurns(const int amount);
 
     // 돈 획득
     void gainMoney(int amount);
@@ -45,12 +56,6 @@ public:
 
     // Set HP
     void setHP(const int amount);
-
-    // Get boostedTurns
-    int getBoostedTurns() const;
-
-    // Set boostedTurns
-    void setBoostedTurns(const int amount);
 
     // Get MaxHP
     int getMaxHP() const;
@@ -83,12 +88,25 @@ public:
     int getLevel() const;
 
     // 아이템
-    bool useShield(int inputAttackPower); // 일회용 방패 아이템
-    void useWoodenSword(); // 목검 아이템
+    //bool useShield(int inputAttackPower); // 일회용 방패 아이템
+    //void useWoodenSword(); // 목검 아이템
+
+    // Inventory 초기화 함수
+    void initializeInventory();
+
+    // Get Inventory
+    vector<pair<const int, const int>> getInventory() const;
+
+    // Set Inventory
+    void setInventory(const int itemIndex, const int amount);
+
 private:
     // 레벨업 처리
     void levelUp();
 
     // 감염
     void Infect();
+
+    // Inventory 상태 출력
+    void printInventory();
 };
