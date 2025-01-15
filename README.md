@@ -24,7 +24,7 @@
 
 10스테이지 까지 모두 끝나면 플레이어가 승리하게 되며, 그 이전에 사망하면 패배하게 됩니다.
 
-### 프로젝트 목표
+## 프로젝트 목표
 
 - 객체지향 프로그래밍
   class 로 객체를 생성하는 것에 대한 이해와 상속을 통한 다형성, 모듈화에 더해 서로 다른 class 끼리의 데이터 흐름을 파악하고 숙달한다.
@@ -33,14 +33,14 @@
 - 창의력
   필수과제와 도전과제에서 더 나아가 게임을 꾸미고, 재미를 더하고, 특별함을 추가하는 과정을 경험한다.
 
-#### 주요 컨텐츠
+## 주요 컨텐츠
 - 게임 플레이 및 UI
 - 캐릭터 생성
 - 좀비 생성
 - 상점 이용
 - 전투
 
-##### 주요 기능
+## 주요 기능
 - Actor class
 - Character class
 - Various Zombie class
@@ -48,12 +48,26 @@
 - Shop class
 - GameMode class
 
-###### 프로젝트 로직
+## 프로젝트 로직
 이미지 삽입
 
-###### 기술 기록
+## 기술 기록
 - Actor class 를 상속한 Character 와 zombie class
 - Item class 를 Character, Zombie 와 Shop class 에서 사용하는 방법
 - GameMode 로 게임의 흐름 제어
 
-######
+## 트러블 슈팅
+...
+
+## 기술 스택
+- Programming Language
+  - C++
+- IDE
+  - Visual studio
+- Platform
+  - Window console
+- Version Control System
+  - GitHub
+
+## 관련 링크
+- [팀 노션](https://teamsparta.notion.site/2-17-1762dc3ef514814d941de95c7f349bb4)
