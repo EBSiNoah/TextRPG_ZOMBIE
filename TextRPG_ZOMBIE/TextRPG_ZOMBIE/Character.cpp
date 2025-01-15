@@ -99,6 +99,18 @@ void Character::setHP(const int amount)
     HP = amount;
 }
 
+// Get BoostedTurns
+int Character::getBoostedTurns() const
+{
+    return boostedTurns;
+}
+
+// Set BoostedTurns
+void Character::setBoostedTurns(const int amount)
+{
+    boostedTurns = amount;
+}
+
 // Get MaxHP
 int Character::getMaxHP() const
 {

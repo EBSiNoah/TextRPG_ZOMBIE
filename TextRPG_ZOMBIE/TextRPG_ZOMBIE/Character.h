@@ -39,6 +39,12 @@ public:
     // Set Money
     void setMoney(int amount);
 
+    // Get boostedTurns
+    int getBoostedTurns() const;
+
+    // Set boostedTurns
+    void setBoostedTurns(const int amount);
+
     // 돈 획득
     void gainMoney(int amount);
 
@@ -94,7 +100,7 @@ public:
     // Inventory 초기화 함수
     void initializeInventory();
     
-
+    // 인벤토리 인덱스, 수량 반환 함수
     vector<pair<const int, const int>> AllInventoryItem() const;
 
 private:
