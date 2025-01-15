@@ -1,22 +1,21 @@
-﻿#include "Shop.h"
+#include "Shop.h"
 #include "Character.h"
 #include "Item.h"
 #include <iomanip>
 #include <iostream>
 using namespace std;
 
-Shop::Shop()
+Shop::Shop(Character* character) : character(character)
 {
-    
 }
-/*
-void Shop::displayMenu(character) {
+
+void Shop::displayMenu() {
     int shop_idx;
-    cout << "========================================================" << endl;
-    cout << setw(20)<<"상   점" << endl;
+    cout << "============================" << endl;
+    cout << "          ��   ��           " << endl;
     displayItems();
-    cout << setw(10)<<"1. 구매   2. 판매   3. 보유 물품" << endl; //다른이름으로 저장->인코딩하여저장->utf
-    cout << " : ";
+    cout << "1. ����   2. �Ǹ�   3. ���� ��ǰ" << endl;
+    cout << "� ���񽺸� �̿��Ͻðڽ��ϱ�? : ";
     cin >> shop_idx;
     switch (shop_idx) {
     case 1:
@@ -25,69 +24,59 @@ void Shop::displayMenu(character) {
     case 2:
         sellItem();
         break;
-    case 3:
-        displayItems();
-        break;
     }
-}
-*/
+    default:
+        cout << "��ġ�ϴ� ��ȣ�� �����ϴ�." << endl;
+    }
+        
 
-void Shop::displayItems(Character& character)
+}
+
+void Shop::displayItems()
 {
-    cout << setw(20) << "상   점" << endl;
-    cout << "========================================================" << endl;
-    cout << setw(4) << "번호";
-    cout << setw(15) << "아이템";
-    cout << setw(10) << "구매가격";
-    cout << setw(10) << "판매가격";
-    cout << setw(15) << "보유수"; 
-    cout << "========================================================" << endl;
+
+   //..Items& item = Inventory.item; 
+
+    cout << setw(4) << "��ȣ";
+    cout << setw(15) << "������";
+    cout << setw(10) << "���� ����";
+    cout << setw(10) << "�Ǹ� ����";
+    cout << setw(15) << "���� ����"; 
+    cout << setw(15) << "�ִ� ����" << endl;
+    cout << "============================" << endl;
 
     for (int i = 0; i < ItemType::Max; ++i) {
-        cout << setw(15) << i;
-        //cout << setw(10) << ;
-        //cout << setw(10) <<  * 0.6;
-        //cout << setw(15) << ;
-        //cout << setw(15) << << endl;
-        cout << "*" << endl;
+        // ������ ���ٹ���� �˰ԵǸ� �����ϰڽ��ϴ�
+        //cout << setw(15) << Inventory::item[i].getName();
+         //cout << setw(10) << item[i].getPrice();
+         //cout << setw(10) << Inventory::item[i]->getPrice() * 0.6;
+        // cout << setw(15) << item[i]->getCurrentStack();
+         //cout << setw(15) << Inventory::item->getMaxStack() << endl;
 
     }
     
-    cout << "========================================================" << endl;
-
-    int shop_idx;
-    cout << setw(10) << "1. 구매   2. 판매   3. 보유 물품" << endl;
-    cout << " : ";
-    cin >> shop_idx;
-    switch (shop_idx) {
-    case 1:
-        buyItem(character);
-        break;
-    case 2:
-        sellItem(character);
-        break;
-    }
+    cout << "============================" << endl;
 }
 
-void Shop::buyItem(Character& character) //캐릭터 레퍼런스 받기, 아이템
+void Shop::buyItem()
 {
     int item_idx;
     int item_amount;
-    cout << "구매를 원하는 아이템 번호를 입력해주세요: ";
+    cout << "���Ÿ� ���ϴ� ������ ��ȣ�� �Է����ּ���: ";
     cin >> item_idx;
 
     if (item_idx < 0/* || item_idx>ItemList::Max*/)
     {
-        cout << "해당 아이템이 존재하지 않습니다." << endl;
+        cout << "�ش� �������� �������� �ʽ��ϴ�." << endl;
         return;
     }
 
-    //cout << item->getMaxStack() << "아이템 구매 개수를 입력해주세요: ";
+    //cout << item->getMaxStack() << "������ ���� ������ �Է����ּ���: ";
     cin >> item_amount;
 
     if (item_amount <= 0 /*|| item_amount > item->getMaxStack() - item->getCurrentStack()*/)
     {
-        cout << "구매하려는 개수가 최대 구매 개수를 초과합니다." << endl;
+        cout << "�����Ϸ��� ������ �ִ� ���� ������ �ʰ��մϴ�." << endl;
         return;
     }
 
@@ -96,25 +85,25 @@ void Shop::buyItem(Character& character) //캐릭터 레퍼런스 받기, 아이
 
 
 }
-void Shop::sellItem(Character& character)
+void Shop::sellItem()
 {
     int item_idx;
     int item_amount;
-    cout << "판매를 원하는 아이템 번호를 입력해주세요: ";
+    cout << "�ǸŸ� ���ϴ� ������ ��ȣ�� �Է����ּ���: ";
     cin >> item_idx;
 
     if (item_idx < 0 /* || item_idx>ItemList::Max*/)
     {
-        cout << "해당 아이템이 존재하지 않습니다." << endl;
+        cout << "�ش� �������� �������� �ʽ��ϴ�." << endl;
         return;
     }
 
-    //cout << item->getMaxStack() << "아이템 판매 개수를 입력해주세요: ";
+    //cout << item->getMaxStack() << "������ �Ǹ� ������ �Է����ּ���: ";
     cin >> item_amount;
 
     if (item_amount <= 0 /*|| item_amount > item->getCurrentStack()*/)
     {
-        cout << "판매하려는 개수가 보유 아이템 개수를 초과합니다." << endl;
+        cout << "�Ǹ��Ϸ��� ������ ���� ������ ������ �ʰ��մϴ�." << endl;
         return;
     }
 
@@ -124,7 +113,7 @@ void Shop::sellItem(Character& character)
 
 Shop::~Shop()
 {
-    cout << "   상점이 종료되었습니다. " << endl;
+    cout << "   ������ ����Ǿ����ϴ�. " << endl;
     cout << "============================" << endl;
-    //character = nullptr;
+    character = nullptr;
 }
