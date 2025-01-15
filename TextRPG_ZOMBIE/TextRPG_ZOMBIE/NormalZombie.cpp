@@ -1,4 +1,4 @@
-#include "NormalZombie.h"
+ï»¿#include "NormalZombie.h"
 #include "RandomUtil.h"
 
 using namespace std;
@@ -31,10 +31,10 @@ void NormalZombie::onHit(int inputAttackPower)
 {
     Actor::onHit(inputAttackPower);
 
-    cout << Name << "´Â " << inputAttackPower << "ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù..!" << endl;
+    cout << Name << "ëŠ” " << inputAttackPower << "ì˜ ë°ë¯¸ì§€ë¥¼ ìž…ì—ˆë‹¤..!" << "(" << HP << "/" << MaxHP << ")" << endl;
 
     if (isDead())
-        cout << Name << "´Â ¸¶Áö¸· ÀÏ°ÝÀ¸·Î »ç¸ÁÇß½À´Ï´Ù !!!" << endl;
+        cout << Name << "ëŠ” ë§ˆì§€ë§‰ ì¼ê²©ìœ¼ë¡œ ì‚¬ë§í–ˆìŠµë‹ˆë‹¤ !!!" << endl;
 }
 
 void NormalZombie::printStatus() const
