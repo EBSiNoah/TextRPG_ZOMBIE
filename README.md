@@ -44,7 +44,7 @@
 - Actor class
 ```c++
 class Actor
-{
+ {
 private:
 	string Name;
 	int AttackPower;
@@ -58,14 +58,7 @@ public:
 	virtual void onHit(int inputAttackPower);
 	bool isDead();
 	void printStatus();
-};
-```python
-def add(a, b):
-    return a + b
-
-result = add(5, 3)
-print(result)
-
+}; ```
 - Character class
 - Various Zombie class
 - Item class
