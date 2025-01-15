@@ -100,6 +100,9 @@ public:
     // Set Inventory
     void setInventory(const int itemIndex, const int amount);
 
+    // Inventory 상태 출력
+    void printInventory();
+
 private:
     // 레벨업 처리
     void levelUp();
@@ -107,6 +110,5 @@ private:
     // 감염
     void Infect();
 
-    // Inventory 상태 출력
-    void printInventory();
+    
 };
