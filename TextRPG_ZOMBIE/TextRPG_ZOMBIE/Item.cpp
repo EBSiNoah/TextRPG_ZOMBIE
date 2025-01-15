@@ -52,10 +52,10 @@ ItemSetting::ItemSetting(ItemType type)
 void ItemSetting::use(Character* chara)
 {
     //CurrentStack을 캐릭터 인벤토리의 소지갯수로 변경
-    if (CurrentStack < 1)
-        return;
+    //if (CurrentStack < 1)
+        //return;
     // 아이템 사용 후 감소
-    --CurrentStack;
+    //--CurrentStack;
 
     switch (itemtype)
     {
