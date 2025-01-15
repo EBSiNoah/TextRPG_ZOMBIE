@@ -4,18 +4,15 @@
 #include "Character.h"
 
 class Shop {
-private:
-	Character* character;
 
 public:
-	Shop(Character* character);
+	Shop();
 	~Shop();
 
-	void displayMenu();
-	void displayItems(/*Character& character*/);
-	void buyItem();
-	void sellItem();
-
+	//void displayMenu();
+	void displayItems(Character& character);
+	void buyItem(Character& character);
+	void sellItem(Character& character);
 
 };
 #endif
