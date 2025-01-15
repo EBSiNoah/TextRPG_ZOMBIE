@@ -10,6 +10,7 @@
 using namespace std;
 
 void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
+    MonsterDropItem dropSystem;
     cout << "===== 전투가 시작됩니다! =====" << endl;
     while (true) {
         player.onHit(zombie->Attack());
@@ -22,7 +23,7 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
         cout << "\n";
         if (zombie->HP <= 0)
         {
-
+            dropSystem.dropItem(&player);
             break;
         }
     }

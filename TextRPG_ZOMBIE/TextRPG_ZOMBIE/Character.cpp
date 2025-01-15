@@ -6,13 +6,13 @@
 using namespace std;
 
 Character::Character()
-    : Actor(), Job("무직"), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
+    : Actor(), Job("무직"), Level(9), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
 {
     initializeInventory();
 }
 
 Character::Character(string inputName, string inputJob, int inputAttackPower, int inputMaxHP)
-    : Actor(inputName, inputAttackPower, inputMaxHP), Job(inputJob), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
+    : Actor(inputName, inputAttackPower, inputMaxHP), Job(inputJob), Level(9), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
 {
     initializeInventory();
 }
@@ -210,7 +210,10 @@ void Character::levelUp()
     Exp -= MaxExp;
     Level++;
     MaxExp += 50;
-    cout << "축하합니다! Lv. " << Level << "로 레벨 업했습니다!" << endl;
+    setAttackPower(getAttackPower() + 5);
+    setMaxHP(getMaxHP() + 100);
+    setHP(getMaxHP());
+    cout << "축하합니다! Lv. " << Level << "로 레벨 업했습니다! ( +5 공격력, +100 체력, 체력 회복! )" << endl;
 }
 
 // 피격 오버라이딩
