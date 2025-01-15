@@ -68,6 +68,18 @@ void Character::setMaxHP(const int amount)
     MaxHP = amount;
 }
 
+// Get BoostedTurns
+int Character::getBoostedTurns() const
+{
+    return boostedTurns;
+}
+
+// Set BoostedTurns
+void Character::setBoostedTurns(const int amount)
+{
+    boostedTurns = amount;
+}
+
 // Get Condition
 string Character::getCondition() const
 {

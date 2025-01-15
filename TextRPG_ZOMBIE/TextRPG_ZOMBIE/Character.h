@@ -46,6 +46,12 @@ public:
     // Set HP
     void setHP(const int amount);
 
+    // Get boostedTurns
+    int getBoostedTurns() const;
+
+    // Set boostedTurns
+    void setBoostedTurns(const int amount);
+
     // Get MaxHP
     int getMaxHP() const;
 
