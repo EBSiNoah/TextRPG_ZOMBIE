@@ -42,16 +42,15 @@
 
 ## 주요 기능
 - Actor class
-  ```class Actor
+  ```
+class Actor
 {
-//protected:
-	
+private:
+	string Name;
+	int AttackPower;
+	int HP;
+	int MaxHP;
 public:
-	string Name;//Name of Actor object
-	int AttackPower;//Attack power of Actor object
-	int HP;//Current health point of Actor object
-	int MaxHP;//Maximun health point of Actor object
-
 	Actor();
 	Actor(string inputName, int inputAttackPower, int inputMaxHP);
 
