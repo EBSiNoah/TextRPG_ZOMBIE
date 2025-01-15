@@ -1,10 +1,12 @@
+#pragma once
 #include <string>
 #include <vector>
 #include <iostream>
 #include "Actor.h"
-#include "Character.h"
 
 using namespace std;
+
+class Character; // 캐릭터 전방 선언
 
 enum ItemType // 모든 아이템 목록
 {

@@ -51,11 +51,30 @@ ItemSetting::ItemSetting(ItemType type)
 
 void ItemSetting::use(Character* chara)
 {
-    //CurrentStack을 캐릭터 인벤토리의 소지갯수로 변경
-    if (CurrentStack < 1)
+    int key = static_cast<int>(itemtype);
+
+    // 캐릭터 인벤토리
+    vector<pair<const int, const int>> inv = chara->getInventory();
+
+    // 아이템의 현재 소지 개수 체크
+    int count = 0;
+    bool found = false;
+    for (const auto& p : inv) 
+    {
+        if (p.first == key) 
+        {
+            count = p.second;
+            found = true;
+            break;
+        }
+    }
+
+    // 아이템이 없거나 수량이 0일경우 종료
+    if (!found || count < 1)
         return;
-    // 아이템 사용 후 감소
-    --CurrentStack;
+
+    // 아이템 사용시 갯수 -1
+    chara->setInventory(key, count - 1);
 
     switch (itemtype)
     {
@@ -76,13 +95,24 @@ void ItemSetting::use(Character* chara)
         chara->AttackPower += 50;
         break;
 
-        // 체력 30 이하일때 펜타닐 복용 예외처리
     case Fentanyl:
-        cout << "최대 체력 30 감소, 체력 5000 회복!";
-        chara->MaxHP -= 30;
-        chara->HP += 5000;
-        if (chara->HP > chara->MaxHP)
-            chara->HP = chara->MaxHP;
+        if (chara->MaxHP < 31) 
+        {
+            // 최대 체력이 30이하라면 최대 체력을 1로 만듭니다.
+            chara->MaxHP = 1;
+            cout << "약물 오용으로 최대 체력이 1이 되었습니다." << endl;
+            chara->HP += 5000;
+            if (chara->HP > chara->MaxHP)
+                chara->HP = chara->MaxHP;
+        }
+        else 
+        {
+            cout << "최대 체력 30 감소, 체력 5000 회복!" << endl;
+            chara->MaxHP -= 30;
+            chara->HP += 5000;
+            if (chara->HP > chara->MaxHP)
+                chara->HP = chara->MaxHP;
+        }
         break;
 
     case Revital:
@@ -92,8 +122,7 @@ void ItemSetting::use(Character* chara)
         break;
 
     case WoodenSword:
-        // 목검 효과: boostedTurns를 3으로 설정 (3턴 동안 효과)
-        if (chara->getBoostedTurns() == 0) 
+        if (chara->getBoostedTurns() == 0)
         {
             chara->setBoostedTurns(3);
             cout << "3턴 동안 공격력이 2배로 증가합니다!" << endl;
@@ -101,7 +130,7 @@ void ItemSetting::use(Character* chara)
         break;
 
     case Shield:
-
+        cout << chara->Name << "이(가) 일회용 방패를 사용하여 피해를 방어했습니다!" << endl;
         break;
 
     case Vaccine:
