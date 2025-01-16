@@ -1,45 +1,143 @@
 #include "MonsterDropItem.h"
 
-void MonsterDropItem::dropItem(Inventory* Inven)
+void MonsterDropItem::dropItem(Character* chara)
 {
     int droptable = RandomUtil::GetRandomInt(0, 100);
+    int dropcheck = RandomUtil::GetRandomInt(0, 100);
 
-    // 예시 드랍 테이블:
-    // 0 ~ 30: Morphine  
-    // 31 ~ 50: Epinephrine  
-    // 51 ~ 60: Methylamphetamine  
-    // 61 ~ 70: Fentanyl  
-    // 71 ~ 75: Revital  
-    // 76 ~ 100: 아무것도 드롭하지 않음
-
+    // 필수 구현과제: 30% 확률로 아이템 드랍
+    // 30% 확률로 droptable에서 전리품 획득 유무 결정
+    // 이후 각 아이템 드랍 확률
+    // 모르핀 : 25%
+    // 에피네프린 : 25%
+    // 백신 : 20%
+    // 메스암페타민 : 10%
+    // 펜타닐 : 10%
+    // 레비탈 : 10%
+    chara->setKillCount(chara->getKillCount() + 1);
+    chara->gainExp(chara->getLevel() * 80 * 1.5);
+    Sleep(1000);
+    chara->gainMoney(chara->getLevel() * 80 * 1.5);
     if (droptable <= 30)
     {
-        // 모르핀 드랍
-        Inven->item[Morphine].setCurrentStack(Inven->item[Morphine].getCurrentStack() + 1);
-        cout << "몬스터가 '모르핀'을 드롭했습니다!" << endl;
+        if (dropcheck <= 25)
+        {
+            // 모르핀 드랍
+            int count = 0;
+            vector<pair<const int, const int>> inv = chara->getInventory();
+            for (const auto& p : inv)
+            {
+                if (p.first == static_cast<int>(Morphine)) 
+                {
+                    count = p.second;
+                    break;
+                }
+            }
+            chara->setInventory(static_cast<int>(Morphine), count + 1);
+            cout << "전리품으로 '모르핀'을 얻었습니다!" << endl;
+        }
+        else if (dropcheck <= 50)
+        {
+            // 에피네프린 드랍
+            int count = 0;
+            vector<pair<const int, const int>> inv = chara->getInventory();
+            for (const auto& p : inv)
+            {
+                if (p.first == static_cast<int>(Epinephrine)) 
+                {
+                    count = p.second;
+                    break;
+                }
+            }
+            chara->setInventory(static_cast<int>(Epinephrine), count + 1);
+            cout << "전리품으로 '에피네프린'을 얻었습니다!" << endl;
+            {
+                ItemSetting DropUse(Epinephrine);
+                if (DropUse.getUseType() == 0)
+                {
+                    DropUse.use(chara);
+                }
+            }
+        }
+        else if (dropcheck <= 70)
+        {
+            // 백신 드랍
+            int count = 0;
+            vector<pair<const int, const int>> inv = chara->getInventory();
+            for (const auto& p : inv)
+            {
+                if (p.first == static_cast<int>(Vaccine)) 
+                {
+                    count = p.second;
+                    break;
+                }
+            }
+            chara->setInventory(static_cast<int>(Vaccine), count + 1);
+            cout << "전리품으로 '백신'을 얻었습니다!" << endl;
+        }
+        else if (dropcheck <= 80)
+        {
+            // 메스암페타민 드랍
+            int count = 0;
+            vector<pair<const int, const int>> inv = chara->getInventory();
+            for (const auto& p : inv)
+            {
+                if (p.first == static_cast<int>(Methylamphetamine)) 
+                {
+                    count = p.second;
+                    break;
+                }
+            }
+            chara->setInventory(static_cast<int>(Methylamphetamine), count + 1);
+            cout << "전리품으로 '메스암페타민'을 얻었습니다!" << endl;
+            {
+                ItemSetting DropUse(Methylamphetamine);
+                if (DropUse.getUseType() == 0)
+                {
+                    DropUse.use(chara);
+                }
+            }
+        }
+        else if (dropcheck <= 90)
+        {
+            // 펜타닐 드랍
+            int count = 0;
+            vector<pair<const int, const int>> inv = chara->getInventory();
+            for (const auto& p : inv)
+            {
+                if (p.first == static_cast<int>(Fentanyl)) 
+                {
+                    count = p.second;
+                    break;
+                }
+            }
+            chara->setInventory(static_cast<int>(Fentanyl), count + 1);
+            cout << "전리품으로 '펜타닐'을 얻었습니다!" << endl;
+        }
+        else if (dropcheck <= 100)
+        {
+            // 레비탈 드랍
+            int count = 0;
+            vector<pair<const int, const int>> inv = chara->getInventory();
+            for (const auto& p : inv)
+            {
+                if (p.first == static_cast<int>(Revital)) 
+                {
+                    count = p.second;
+                    break;
+                }
+            }
+            chara->setInventory(static_cast<int>(Revital), count + 1);
+            cout << "전리품으로 '레비탈'을 얻었습니다!" << endl;
+            {
+                ItemSetting DropUse(Revital);
+                if (DropUse.getUseType() == 0)
+                {
+                    DropUse.use(chara);
+                }
+            }
+        }
     }
-    else if (droptable <= 50)
-    {
-        // 에피네프린 드랍
-        Inven->item[Epinephrine].setCurrentStack(Inven->item[Epinephrine].getCurrentStack() + 1);
-        cout << "몬스터가 '에피네프린'을 드롭했습니다!" << endl;
-    }
-    else if (droptable <= 60)
-    {
-        // 메스암페타민 드랍
-        Inven->item[Methylamphetamine].setCurrentStack(Inven->item[Methylamphetamine].getCurrentStack() + 1);
-        cout << "몬스터가 '메스암페타민'을 드롭했습니다!" << endl;
-    }
-    else if (droptable <= 70)
-    {
-        // 펜타닐 드랍
-        Inven->item[Fentanyl].setCurrentStack(Inven->item[Fentanyl].getCurrentStack() + 1);
-        cout << "몬스터가 '펜타닐'을 드롭했습니다!" << endl;
-    }
-    else if (droptable <= 75)
-    {
-        // 레비탈 드랍
-        Inven->item[Revital].setCurrentStack(Inven->item[Revital].getCurrentStack() + 1);
-        cout << "몬스터가 '레비탈'을 드롭했습니다!" << endl;
-    }
+    Sleep(2000);
+    system("cls");
 }
