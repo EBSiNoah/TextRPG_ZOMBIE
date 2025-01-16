@@ -84,11 +84,22 @@ void Shop::buyItem(Character& character)
 
     if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
     {
-        character.addItem(item_idx, item_amount);
-        character.payMoney(itemList[item_idx].getPrice()*item_amount);
-        cout << "보유 중인 " << itemList[item_idx].getName() << " : " << character.getInventory()[item_idx].second
-            << " || 남은 돈 : " << character.getMoney() << endl;
-        Sleep(1000);
+        if (itemList[item_idx].getUseType() == 0)
+        {
+            ItemSetting item(static_cast<ItemType>(item_idx));
+            item.use(&character);
+            cout << "아이템을 사용했습니다! " << "(" << itemList[item_idx].getExplain() << ")" << endl;
+            Sleep(3000);
+        }
+        else
+        {
+            character.addItem(item_idx, item_amount);
+            character.payMoney(itemList[item_idx].getPrice() * item_amount);
+            cout << "보유 중인 " << itemList[item_idx].getName() << " : " << character.getInventory()[item_idx].second
+                << " || 남은 돈 : " << character.getMoney() << endl;
+            Sleep(2000);
+        }
+
     }
     else
     {
