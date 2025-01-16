@@ -43,7 +43,7 @@
 
 ## 주요 기능
 - <details><summary>Actor class</summary>
-  ```class Actor{}```
+```class Actor{}```
 </details>
 - <details><summary>Character class</summary>image</details>
 - <details><summary>Various Zombie class</summary>image</details>
