@@ -11,6 +11,8 @@ using namespace std;
 class BattleScene {
 public:
     void startBattle(Character& player, unique_ptr<Actor>& enemy);
+    int validateInput(const string& input, int min, int max);
+
 };
 
 #endif

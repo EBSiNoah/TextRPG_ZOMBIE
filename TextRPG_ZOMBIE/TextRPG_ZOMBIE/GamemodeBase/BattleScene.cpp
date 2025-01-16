@@ -19,12 +19,24 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
     cout << "**********  " << zombie->Name << "을(를) 마주쳤다! " << battleMentBox[randomValue] << "  **********" << endl;
     Sleep(1300);
     while (true) {
+        cout << player.Name << " : " << "공격력(" << player.getAttackPower()
+            << ") / 체력(" << player.getHP() << " / " << player.getMaxHP() << ")" << endl;
+
+        cout << zombie->Name << " : " << "공격력(" << zombie->AttackPower
+            << ") / 체력(" << zombie->HP << " / " << zombie->MaxHP << ")" << endl;
+
+        //cout << zombie.Name
         cout << "\n==============================" << endl;
         cout << "1. 공격\n2. 아이템 사용\n3. 도망치기\n> ";
         string choice;
         cin >> choice;
+        system("cls");
+        int action = validateInput(choice, 1, 3);
+        if (action == -1) {
+            continue;
+        }
 
-        if (choice == "1") {
+        if (action == 1) {
             Sleep(1000);
             cout << endl;
             cout << player.Name << "이(가) " << zombie->Name << "을(를) 공격합니다!" << endl;
@@ -38,7 +50,7 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
                 cout << endl;
             }
         }
-        else if (choice == "2") {
+        else if (action == 2) {
             cout << "\n===== 보유 아이템 =====" << endl;
 
             vector<pair<const int, const int>> inventory = player.getInventory();
@@ -57,16 +69,20 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
 
             if (itemMapping.empty()) {
                 cout << "사용 가능한 아이템이 없습니다!" << endl;
+                continue;
             }
 
             cout << "=======================" << endl;
             cout << "\n사용할 아이템의 번호를 입력하세요 (취소: -1): ";
-            int userChoice;
-            cin >> userChoice;
+            string itemChoice;
+            cin >> itemChoice;
 
+            int userChoice = validateInput(itemChoice, -1, displayIndex - 1);
             if (userChoice == -1) {
-                cout << "아이템 사용을 취소합니다." << endl;
+                cout << "아이템 사용을 취소합니다."<< endl;
+                continue;
             }
+
             else if (itemMapping.find(userChoice) != itemMapping.end()) {
                 int actualItemIndex = itemMapping[userChoice];
                 auto it = find_if(inventory.begin(), inventory.end(),
@@ -127,4 +143,42 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
             }
         }
     }
+}
+int BattleScene::validateInput(const string& input, int min, int max) {
+    try {
+        // 한글 또는 비-ASCII 문자 포함 여부 확인
+        if (std::any_of(input.begin(), input.end(), [](unsigned char c) {
+            return (c & 0x80); // ASCII 범위를 벗어나는 문자 (한글 포함)
+            })) {
+            throw invalid_argument("");
+        }
+
+        // 입력값 비어 있는지 확인 및 숫자 검증
+        if (input.empty() ||
+            (!std::all_of(input.begin(), input.end(), ::isdigit) &&
+                !(input[0] == '-' && input.size() > 1 && std::all_of(input.begin() + 1, input.end(), ::isdigit)))) {
+            throw invalid_argument("");
+        }
+
+        // 문자열 길이 제한
+        if (input.length() > 10) {
+            throw out_of_range("");
+        }
+
+        // 문자열을 정수로 변환
+        int value = stoi(input);
+
+        // 범위 확인
+        if (value < min || value > max) {
+            throw out_of_range("");
+        }
+
+        return value;
+    }
+    catch (...) {
+        cout << "잘못 입력하셨습니다. 다시 입력해주세요." << endl;
+        Sleep(1000);
+        system("cls");
+    }
+    return -1;
 }
