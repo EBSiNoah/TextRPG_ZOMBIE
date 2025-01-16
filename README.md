@@ -42,28 +42,12 @@
 - 전투
 
 ## 주요 기능
-- <details><summary>Actor class</summary>
-class Actor
-{
-private:
-	string Name;
-	int AttackPower;
-	int HP;
-	int MaxHP;
-public:
-	Actor();
-	Actor(string inputName, int inputAttackPower, int inputMaxHP);
-
-	virtual int Attack();
-	virtual void onHit(int inputAttackPower);
-	bool isDead();
-	void printStatus();
-};</details>
-- Character class
-- Various Zombie class
-- Item class
-- Shop class
-- GameMode class
+- <details><summary>Actor class</summary>image</details>
+- <details><summary>Character class</summary>image</details>
+- <details><summary>Various Zombie class</summary>image</details>
+- <details><summary>Item class</summary>image</details>
+- <details><summary>Shop class</summary>image</details>
+- <details><summary>GameMode class</summary>image</details>
 
 ## 프로젝트 로직
 이미지 삽입
