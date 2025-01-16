@@ -21,17 +21,17 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
     while (true) {
         cout << "\n==============================" << endl;
         cout << "1. 공격\n2. 아이템 사용\n> ";
-        int choice;
+        string choice;
         cin >> choice;
 
-        if (choice == 1) {
+        if (choice == "1") {
             Sleep(1000);
             cout << endl;
             cout << player.Name << "이(가) " << zombie->Name << "을(를) 공격합니다!" << endl;
             zombie->onHit(player.Attack());
             cout << endl;
         }
-        else if (choice == 2) {
+        else if (choice == "2") {
             cout << "\n===== 보유 아이템 =====" << endl;
 
             vector<pair<const int, const int>> inventory = player.getInventory();

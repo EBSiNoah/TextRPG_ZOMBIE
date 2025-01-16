@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include "Item.h"
+#include <windows.h>
 
 class Character : public Actor {
 private:
@@ -102,6 +103,7 @@ public:
 
     // Inventory 상태 출력
     void printInventory();
+
 
 private:
     // 레벨업 처리

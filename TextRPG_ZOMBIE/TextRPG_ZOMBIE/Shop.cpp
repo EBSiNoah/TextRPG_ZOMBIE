@@ -32,7 +32,7 @@ void Shop::displayItems(Character& character)
         cout << setw(10) << "     아이템효과" << endl;
         cout << "============================================================================================" << endl;
 
-        for (int i = 0; i < itemList.size(); i++) {
+        for (int i = 0; i < ItemType::Max; ++i) {
             cout << setw(10) << itemList[i].getItemType();
             cout << setw(15) << itemList[i].getName();
             cout << setw(10) << itemList[i].getPrice();
@@ -148,7 +148,7 @@ void Shop::sellItem(Character& character)
         cout << "현재" << itemList[item_idx].getName() << " 보유 개수 : " << character.getInventory()[item_idx].second << " || 자원 판매 개수를 입력해주세요 : ";
         cin >> item_amount;
 
-        if (character.getInventory()[item_idx].second <= item_amount)
+        if (character.getInventory()[item_idx].second < item_amount)
         {
             cout << "보유중인 자원보다 더 많은 자원을 판매할 수 없습니다." << endl;
             Sleep(1000);

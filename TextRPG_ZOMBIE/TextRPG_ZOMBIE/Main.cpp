@@ -23,7 +23,6 @@ int main() {
     Character player = characterCreation.createCharacter(); // 캐릭터 생성
     system("cls");
     menuScene.showMenu(player, battleScene, zombieFactory, shop); // 선택메뉴
-    system("cls");
 
     return 0;
 }

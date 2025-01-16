@@ -42,7 +42,7 @@ void Character::addItem(const int itemIndex, const int amount)
     ItemSetting tempItem(static_cast<ItemType>(itemIndex));
     string itemName = tempItem.getName();
 
-    cout << "아이템 추가: " << itemName << "을(를) " << amount << "개 추가했습니다." << endl;
+    cout << Name << "이(가) " << itemName << "을(를) " << amount << "개 획득했습니다." << endl;
 }
 
 // Delete Item
@@ -57,9 +57,9 @@ void Character::deleteItem(const int itemIndex, const int amount)
         else
         {
             // 남은 수량이 제거할 수량보다 적으면 아이템 삭제
-            Inventory.erase(itemIndex);
-            cout << "아이템이 모두 제거했습니다: "
-                << ItemSetting(static_cast<ItemType>(itemIndex)).getName() << endl;
+            //Inventory.erase(itemIndex);
+           /* cout << "아이템이 모두 제거했습니다: "
+                << ItemSetting(static_cast<ItemType>(itemIndex)).getName() << endl;*/
             return;
         }
 
@@ -220,6 +220,9 @@ void Character::levelUp()
 void Character::onHit(int inputAttackPower) {
     if (ItemSetting::ShieldCheck(this, inputAttackPower)) // "일회용 방패" 사용 여부
     {
+        cout << "끝까지 버텨야 해!" << endl;
+        Sleep(1000);
+        cout << Name << "이(가) 일회용 방패를 사용했습니다!" << endl;
         return;
     }
 
@@ -251,7 +254,7 @@ void Character::Infect()
     if (chance < 10) // 10% 확률로 감염
     {
         Condition = "감염";
-        cout << Name << "이(가) 감염되었습니다. (피격 시 최대 체력 5 퍼센트 피해를 더 받습니다.)" << endl;
+        cout << Name << "이(가) 바이러스를 버티지 못하고 감염되었습니다, (피격 시 최대 체력 5 퍼센트 피해를 더 받습니다.)" << endl;
     }
 }
 
@@ -264,49 +267,15 @@ int Character::Attack()
     if (boostedTurns > 0)
     {
         boostedTurns--; // 턴 소모
+        cout << "이게 마지막 희망이다!" << endl;
+        Sleep(1000);
         cout << Name << "이(가) \"목검\" 효과로 공격력이 2배로 증가했습니다!" << endl;
+        Sleep(1000);
         return AttackPower * 2;
     }
 
     return AttackPower;
 }
-
-// 일회용 방패 아이템 : 피해량이 남은 체력보다 크고 && 인벤토리에 "일회용 방패"가 있으면 피해 무효
-//bool Character::useShield(int inputAttackPower)
-//{
-//    if (HP <= inputAttackPower && Inventory.find("일회용 방패") != Inventory.end() && Inventory["일회용 방패"] > 0)
-//    {
-//        Inventory["일회용 방패"]--;
-//        if (Inventory["일회용 방패"] == 0)
-//        {
-//            Inventory.erase("일회용 방패");
-//        }
-//        cout << Name << "이(가) 일회용 방패를 사용하여 피해를 방어했습니다!" << endl;
-//        return true;
-//    }
-//    return false;
-//}
-
-// 목검 아이템 : 3턴 동안 피해량 2배
-//void Character::useWoodenSword()
-//{
-//    // 목검 효과가 없고, 인벤토리에 목검이 있는 경우
-//    if (boostedTurns == 0)
-//    {
-//        auto it = Inventory.find("목검");
-//        if (it != Inventory.end() && it->second > 0)
-//        {
-//            boostedTurns = 3; // 3턴 동안 효과 유지
-//            it->second--;     // 목검 소모
-//            if (it->second == 0)
-//            {
-//                Inventory.erase(it); // 남은 개수가 0이면 제거
-//            }
-//            cout << Name << "이(가) 목검을 사용했습니다! 3턴 동안 공격력이 2배로 증가합니다." << endl;
-//        }
-//    }
-//}
-
 
 // Inventory 초기화
 void Character::initializeInventory()

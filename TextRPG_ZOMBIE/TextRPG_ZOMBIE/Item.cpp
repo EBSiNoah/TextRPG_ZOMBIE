@@ -53,7 +53,7 @@ ItemSetting::ItemSetting(ItemType type)
         Name = "일회용 방패";
         Price = 240;
         Explain = "피해 방어(1회용)";
-        UseType = 0;
+        UseType = 1;
         break;
 
     case Vaccine:
@@ -141,7 +141,7 @@ void ItemSetting::use(Character* chara)
         if (chara->getBoostedTurns() == 0)
         {
             chara->setBoostedTurns(3);
-            cout << "3턴 동안 공격력이 2배로 증가합니다!" << endl;
+            //cout << "3턴 동안 공격력이 2배로 증가합니다!" << endl;
         }
         break;
 
@@ -186,7 +186,7 @@ bool ItemSetting::ShieldCheck(Character* chara, int inputAttackPower)
                 chara->setInventory(shieldKey, item.second - 1);
 
                 // 방패 사용 시 피해 무효화
-                cout << chara->Name << "이(가) 일회용 방패를 사용하여 피해를 방어했습니다!" << endl;
+                //cout << chara->Name << "이(가) 일회용 방패를 사용하여 피해를 방어했습니다!" << endl;
                 return true;
             }
             break;
