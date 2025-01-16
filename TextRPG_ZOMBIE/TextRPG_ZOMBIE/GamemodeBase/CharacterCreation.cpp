@@ -3,7 +3,8 @@
 Character CharacterCreation::createCharacter() {
     string playerName;
     string choice;
-    cin >> playerName;
+    //cin >> playerName;
+    getline(cin, playerName);
     system("cls");
     cout << "당신은 누구입니까? 이름을 남기세요.\n그것이 당신의 유일한 흔적이 될지도 모릅니다.\n> ";
     while (true) {
