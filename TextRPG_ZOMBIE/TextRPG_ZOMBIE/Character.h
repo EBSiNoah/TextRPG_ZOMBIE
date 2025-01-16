@@ -88,6 +88,8 @@ public:
     // Get level
     int getLevel() const;
 
+    void setLevel(const int lv);
+
     // 아이템
     //bool useShield(int inputAttackPower); // 일회용 방패 아이템
     //void useWoodenSword(); // 목검 아이템

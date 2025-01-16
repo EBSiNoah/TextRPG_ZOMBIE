@@ -164,6 +164,12 @@ int Character::getLevel() const
     return Level;
 }
 
+// Set Level
+void Character::setLevel(const int lv)
+{
+    Level = lv;
+}
+
 // Get Money
 int Character::getMoney() const
 {
