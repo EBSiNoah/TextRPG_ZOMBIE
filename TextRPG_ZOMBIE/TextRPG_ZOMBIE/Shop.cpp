@@ -53,6 +53,7 @@ void Shop::displayItems(Character& character)
         break;
     case 3:
         character.printStatus();
+        Sleep(1000);
         system("cls");
         return;
     default:
