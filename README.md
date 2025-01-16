@@ -52,12 +52,6 @@
 ## 프로젝트 로직
 ![image_720](https://github.com/user-attachments/assets/f097ca09-3705-4d4c-ba3b-81e1bb0048aa)
 
-
-## 기술 기록
-- Actor class 를 상속한 Character 와 zombie class
-- Item class 를 Character, Zombie 와 Shop class 에서 사용하는 방법
-- GameMode 로 게임의 흐름 제어
-
 ## 기술 스택
 - Programming Language
   - C++
@@ -70,3 +64,4 @@
 
 ## 관련 링크
 - [팀 노션](https://teamsparta.notion.site/2-17-1762dc3ef514814d941de95c7f349bb4)
+- [Figma](https://www.figma.com/board/XHo6NR0O32FvFByUEIhds9/NBC_Unreal-2%EA%B8%B0-17%EC%A1%B0-%EC%A2%80%EB%B3%B4%EC%9D%B4%EB%93%9C?node-id=0-1&p=f&t=Yag0p0PaFnwfTD7d-0)
