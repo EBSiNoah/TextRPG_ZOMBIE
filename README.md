@@ -50,7 +50,8 @@
 - <details><summary>GameMode class</summary>image</details>
 
 ## 프로젝트 로직
-이미지 삽입
+![image_720](https://github.com/user-attachments/assets/f097ca09-3705-4d4c-ba3b-81e1bb0048aa)
+
 
 ## 기술 기록
 - Actor class 를 상속한 Character 와 zombie class
