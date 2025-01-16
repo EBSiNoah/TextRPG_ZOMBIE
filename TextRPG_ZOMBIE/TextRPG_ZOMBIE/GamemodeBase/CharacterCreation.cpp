@@ -29,23 +29,23 @@ Character CharacterCreation::createCharacter() {
         cout << "> ";
         cin >> choice;
         if (choice == "1") {
-            Character player(playerName, "사냥꾼", 50, 500);
+            Character player(playerName, "사냥꾼", 10, 25);
             Message(playerName);
             return player;
         }
         else if (choice == "2") {
-            Character player(playerName, "군인", 30, 800);
+            Character player(playerName, "군인", 5, 40);
             Message(playerName);
             return player;
         }
         else if (choice == "3") {
-            Character player(playerName, "의사", 30, 2000);
+            Character player(playerName, "의사", 7, 30);
             player.addItem(0, 5);
             Message(playerName);
             return player;
         }
         else if (choice == "4") {
-            Character player(playerName, "범죄자", 30, 500);
+            Character player(playerName, "범죄자", 7, 30);
             player.gainMoney(200);
             Message(playerName);
             return player;

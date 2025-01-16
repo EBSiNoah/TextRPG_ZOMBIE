@@ -4,6 +4,7 @@
 #include "../Character.h"
 #include "../ZombieFactory.h"
 #include <iostream>
+#include <unordered_map>
 using namespace std;
 
 class BattleScene {

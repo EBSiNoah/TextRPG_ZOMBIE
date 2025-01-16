@@ -80,12 +80,13 @@ void Character::deleteItem(const int itemIndex, const int amount)
 void Character::gainExp(int amount)
 {
     Exp += amount;
-    cout << "경험치 획득: " << amount << " (현재 EXP: " << Exp << "/" << MaxExp << ")" << endl;
 
     while (Exp >= MaxExp)
     {
         levelUp();
     }
+
+    cout << "경험치 획득: " << amount << " (현재 EXP: " << Exp << "/" << MaxExp << ")" << endl;
 }
 // Get HP
 int Character::getHP() const
@@ -210,8 +211,8 @@ void Character::levelUp()
     Exp -= MaxExp;
     Level++;
     MaxExp += 50;
-    setAttackPower(getAttackPower() + 5);
-    setMaxHP(getMaxHP() + 100);
+    setAttackPower(getAttackPower() + 10);
+    setMaxHP(getMaxHP() + 50);
     setHP(getMaxHP());
     cout << "축하합니다! Lv. " << Level << "로 레벨 업했습니다! ( +5 공격력, +100 체력, 체력 회복! )" << endl;
 }

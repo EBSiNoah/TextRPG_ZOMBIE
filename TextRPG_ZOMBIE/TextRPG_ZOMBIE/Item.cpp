@@ -52,7 +52,7 @@ ItemSetting::ItemSetting(ItemType type)
     case Shield:
         Name = "일회용 방패";
         Price = 240;
-        Explain = "피해 방어(1회용)";
+        Explain = "피해 방어(죽기 직전 자동으로 사용됩니다.)";
         UseType = 1;
         break;
 
