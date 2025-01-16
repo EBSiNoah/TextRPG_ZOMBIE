@@ -16,7 +16,7 @@ void MonsterDropItem::dropItem(Character* chara)
     // ·¹ºñÅ» : 10%
     chara->gainExp(chara->getLevel() * 50);
     chara->gainMoney(chara->getLevel() * 50);
-    if (droptable <= 100)
+    if (droptable <= 30)
     {
         if (dropcheck <= 25)
         {
