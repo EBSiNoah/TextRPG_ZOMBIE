@@ -89,7 +89,13 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
         // 좀비의 반격
         Sleep(1000);
         cout << "\n" << zombie->Name << "이(가) " << player.Name << "을(를) 공격합니다!" << endl;
-        player.onHit(zombie->Attack());
+        if (!ItemSetting::ShieldCheck(&player, zombie->Attack())) {
+            player.onHit(zombie->Attack());
+        }
+        else {
+            cout << player.Name << "이(가) 일회용 방패를 사용하여 피해를 방어했습니다!" << endl;
+        }
+        //player.onHit(zombie->Attack());
         cout << endl;
 
         // 플레이어 체력 확인

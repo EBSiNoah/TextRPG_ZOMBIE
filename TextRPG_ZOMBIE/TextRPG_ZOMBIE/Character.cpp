@@ -220,7 +220,7 @@ void Character::levelUp()
 void Character::onHit(int inputAttackPower) {
     if (ItemSetting::ShieldCheck(this, inputAttackPower)) // "일회용 방패" 사용 여부
     {
-        cout << "끝까지 버텨야 해!" << endl;
+        //cout << "끝까지 버텨야 해!" << endl;
         Sleep(1000);
         cout << Name << "이(가) 일회용 방패를 사용했습니다!" << endl;
         return;
@@ -267,8 +267,7 @@ int Character::Attack()
     if (boostedTurns > 0)
     {
         boostedTurns--; // 턴 소모
-        cout << "이게 마지막 희망이다!" << endl;
-        Sleep(1000);
+        //cout << "이게 마지막 희망이다!" << endl;
         cout << Name << "이(가) \"목검\" 효과로 공격력이 2배로 증가했습니다!" << endl;
         Sleep(1000);
         return AttackPower * 2;
