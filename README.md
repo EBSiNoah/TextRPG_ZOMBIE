@@ -42,7 +42,7 @@
 - 전투
 
 ## 주요 기능
-- Actor class
+- <details><summary>Actor class</summary>summary test</details>
 - Character class
 - Various Zombie class
 - Item class
