@@ -8,13 +8,13 @@ Character CharacterCreation::createCharacter() {
     cout << "당신은 누구입니까? 이름을 남기세요.\n그것이 당신의 유일한 흔적이 될지도 모릅니다.\n> ";
     while (true) {
         cin >> playerName;
-        if (playerName.length() < 8)
+        if (playerName.length() >= 2 && playerName.length() < 8)
         {
             break;
         }
         else
         {
-            cout << "8글자 이내로 작성해주세요 : ";
+            cout << "2글자 이상, 8글자 이내로 작성해주세요 : ";
         }
     }
 
@@ -51,7 +51,7 @@ Character CharacterCreation::createCharacter() {
             return player;
         }
         else {
-            cout << "선택가능한 범위에서 벗어났습니다. 다시 선택해주세요. : " << endl;
+            cout << "선택가능한 범위에서 벗어났습니다." << endl;
         }
     }
 }

@@ -3,7 +3,6 @@
 #include "ZombieFactory.h"
 #include "GamemodeBase/MenuScene.h"
 #include "GamemodeBase/BattleScene.h"
-//#include "../EndingScene.h"
 #include "Character.h"
 #include "ZombieFactory.h"
 #include "Shop.h"
@@ -24,10 +23,7 @@ int main() {
     Character player = characterCreation.createCharacter(); // 캐릭터 생성
     system("cls");
     menuScene.showMenu(player, battleScene, zombieFactory, shop); // 선택메뉴
-    
-    //EndingScene endingScene;
-    //endingScene.showEnding(player.getHP() > 0, player.getName(), "좀비 보스"); // 엔딩
+    system("cls");
 
     return 0;
 }
-//오프닝 -> 생성 -> 선택메뉴 -> 전투

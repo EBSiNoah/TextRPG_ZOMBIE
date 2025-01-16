@@ -132,6 +132,7 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="GamemodeBase\BattleScene.cpp" />
     <ClCompile Include="GamemodeBase\CharacterCreation.cpp" />
+    <ClCompile Include="GamemodeBase\EndingScene.cpp" />
     <ClCompile Include="GamemodeBase\GameMode.cpp" />
     <ClCompile Include="GamemodeBase\MenuScene.cpp" />
     <ClCompile Include="GamemodeBase\OpeningScene.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="BossZombie.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="GamemodeBase\BattleScene.h" />
+    <ClInclude Include="GamemodeBase\EndingScene.h" />
     <ClInclude Include="GamemodeBase\GameMode.h" />
     <ClInclude Include="GamemodeBase\MenuScene.h" />
     <ClInclude Include="GamemodeBase\OpeningScene.h" />

@@ -3,6 +3,7 @@
 #include "Actor.h"
 #include <iostream>
 #include <string>
+#include <windows.h>
 
 class BossZombie : public Actor
 {
