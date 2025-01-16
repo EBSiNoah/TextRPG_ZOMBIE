@@ -1,4 +1,4 @@
-#include "BattleScene.h"
+ï»¿#include "BattleScene.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -12,43 +12,43 @@ using namespace std;
 void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
     MonsterDropItem dropSystem;
     Sleep(1000);
-    cout << "===== ÀüÅõ°¡ ½ÃÀÛµË´Ï´Ù! =====" << endl;
-    vector<string> battleMentBox = { "µÎ·Á¿ö¼­ ´«¹°¹ü¹÷ÀÌÁö¸¸ ½Î¿öº¸ÀÚ..!", "»ì·ÁÁà¿ä", "´Ù¸®°¡ ÈÄµé°Å¸®Áö¸¸ ½Î¿öº¸ÀÚ..!", "´Ù·¡³¢·Î ÇÑÂÊ´«ÀÌ ¾È º¸ÀÌÁö¸¸ ½Î¿öº¸ÀÚ..." };
+    cout << "===== ì „íˆ¬ê°€ ì‹œì‘ë©ë‹ˆë‹¤! =====" << endl;
+    vector<string> battleMentBox = { "ë‘ë ¤ì›Œì„œ ëˆˆë¬¼ë²”ë²…ì´ì§€ë§Œ ì‹¸ì›Œë³´ì..!", "ì‚´ë ¤ì¤˜ìš”", "ë‹¤ë¦¬ê°€ í›„ë“¤ê±°ë¦¬ì§€ë§Œ ì‹¸ì›Œë³´ì..!", "ë‹¤ë˜ë¼ë¡œ í•œìª½ëˆˆì´ ì•ˆ ë³´ì´ì§€ë§Œ ì‹¸ì›Œë³´ì..." };
     int randomValue = RandomUtil::GetRandomInt(0, battleMentBox.size() - 1);
     Sleep(1000);
-    cout << "**********  " << zombie->Name << "À»(¸¦) ¸¶ÁÖÃÆ´Ù! " << battleMentBox[randomValue] << "  **********" << endl;
+    cout << "**********  " << zombie->Name << "ì„(ë¥¼) ë§ˆì£¼ì³¤ë‹¤! " << battleMentBox[randomValue] << "  **********" << endl;
     Sleep(1300);
     while (true) {
         cout << "\n==============================" << endl;
-        cout << "1. °ø°İ\n2. ¾ÆÀÌÅÛ »ç¿ë\n> ";
+        cout << "1. ê³µê²©\n2. ì•„ì´í…œ ì‚¬ìš©\n> ";
         int choice;
         cin >> choice;
 
         if (choice == 1) {
             Sleep(1000);
             cout << endl;
-            cout << player.Name << "ÀÌ(°¡) " << zombie->Name << "À»(¸¦) °ø°İÇÕ´Ï´Ù!" << endl;
+            cout << player.Name << "ì´(ê°€) " << zombie->Name << "ì„(ë¥¼) ê³µê²©í•©ë‹ˆë‹¤!" << endl;
             zombie->onHit(player.Attack());
             cout << endl;
         }
         else if (choice == 2) {
-            cout << "\n===== º¸À¯ ¾ÆÀÌÅÛ =====" << endl;
+            cout << "\n===== ë³´ìœ  ì•„ì´í…œ =====" << endl;
 
             vector<pair<const int, const int>> inventory = player.getInventory();
             for (const auto& item : inventory) {
                 if (item.second > 0) {
                     ItemSetting tempItem(static_cast<ItemType>(item.first));
                     cout << "[" << item.first << "] " << tempItem.getName()
-                        << " - º¸À¯ ¼ö·®: " << item.second << "°³" << endl;
+                        << " - ë³´ìœ  ìˆ˜ëŸ‰: " << item.second << "ê°œ" << endl;
                 }
             }
             cout << "=======================" << endl;
-            cout << "\n»ç¿ëÇÒ ¾ÆÀÌÅÛÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä (Ãë¼Ò: -1): ";
+            cout << "\nì‚¬ìš©í•  ì•„ì´í…œì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” (ì·¨ì†Œ: -1): ";
             int itemIndex;
             cin >> itemIndex;
 
             if (itemIndex == -1) {
-                cout << "¾ÆÀÌÅÛ »ç¿ëÀ» Ãë¼ÒÇÕ´Ï´Ù." << endl;
+                cout << "ì•„ì´í…œ ì‚¬ìš©ì„ ì·¨ì†Œí•©ë‹ˆë‹¤." << endl;
             }
             else {
                 vector<pair<const int, const int>> inventory = player.getInventory();
@@ -60,41 +60,41 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
                 if (it != inventory.end() && it->second > 0) {
                     ItemSetting item(static_cast<ItemType>(itemIndex));
                     item.use(&player);
-                    cout << player.Name << "ÀÌ(°¡) ¾ÆÀÌÅÛÀ» »ç¿ëÇß½À´Ï´Ù: "
+                    cout << player.Name << "ì´(ê°€) ì•„ì´í…œì„ ì‚¬ìš©í–ˆìŠµë‹ˆë‹¤ "
                         << item.getName() << endl;
                 }
                 else {
-                    cout << "ÇØ´ç ¾ÆÀÌÅÛÀÌ ¾ø°Å³ª ¼ö·®ÀÌ ºÎÁ·ÇÕ´Ï´Ù!" << endl;
+                    cout << "í•´ë‹¹ ì•„ì´í…œì´ ì—†ê±°ë‚˜ ìˆ˜ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤!" << endl;
                 }
             }
 
             Sleep(1000);
             cout << endl;
-            cout << player.Name << "ÀÌ(°¡) " << zombie->Name << "À»(¸¦) °ø°İÇÕ´Ï´Ù!" << endl;
+            cout << player.Name << "ì´(ê°€) " << zombie->Name << "ì„(ë¥¼) ê³µê²©í•©ë‹ˆë‹¤!" << endl;
             zombie->onHit(player.Attack());
             cout << endl;
         }
         else {
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä." << endl;
+            cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”." << endl;
             continue;
         }
 
-        // Á»ºñ Ã¼·Â È®ÀÎ
+        // ì¢€ë¹„ ì²´ë ¥ í™•ì¸
         if (zombie->HP <= 0) {
-            cout << zombie->Name << "ÀÌ(°¡) ¾²·¯Á³½À´Ï´Ù!" << endl;
+            cout << zombie->Name << "ì´(ê°€) ì“°ëŸ¬ì¡ŒìŠµë‹ˆë‹¤!" << endl;
             dropSystem.dropItem(&player);
             break;
         }
 
-        // Á»ºñÀÇ ¹İ°İ
+        // ì¢€ë¹„ì˜ ë°˜ê²©
         Sleep(1000);
-        cout << "\n" << zombie->Name << "ÀÌ(°¡) " << player.Name << "À»(¸¦) °ø°İÇÕ´Ï´Ù!" << endl;
+        cout << "\n" << zombie->Name << "ì´(ê°€) " << player.Name << "ì„(ë¥¼) ê³µê²©í•©ë‹ˆë‹¤!" << endl;
         player.onHit(zombie->Attack());
         cout << endl;
 
-        // ÇÃ·¹ÀÌ¾î Ã¼·Â È®ÀÎ
+        // í”Œë ˆì´ì–´ ì²´ë ¥ í™•ì¸
         if (player.HP <= 0) {
-            cout << player.Name << "ÀÌ(°¡) ¾²·¯Á³½À´Ï´Ù! ÀüÅõ Á¾·á!" << endl;
+            cout << player.Name << "ì´(ê°€) ì“°ëŸ¬ì¡ŒìŠµë‹ˆë‹¤! ì „íˆ¬ ì¢…ë£Œ!" << endl;
             break;
         }
     }

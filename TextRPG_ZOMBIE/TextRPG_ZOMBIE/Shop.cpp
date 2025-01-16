@@ -86,6 +86,7 @@ void Shop::buyItem(Character& character)
     {
         if (itemList[item_idx].getUseType() == 0)
         {
+            character.addItem(item_idx, item_amount);
             ItemSetting item(static_cast<ItemType>(item_idx));
             item.use(&character);
             cout << "아이템을 사용했습니다! " << "(" << itemList[item_idx].getExplain() << ")" << endl;
