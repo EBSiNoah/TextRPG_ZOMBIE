@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 #include <vector>
 #include <iostream>
@@ -6,9 +6,9 @@
 
 using namespace std;
 
-class Character; // Ä³¸¯ÅÍ Àü¹æ ¼±¾ğ
+class Character; // ìºë¦­í„° ì „ë°© ì„ ì–¸
 
-enum ItemType // ¸ğµç ¾ÆÀÌÅÛ ¸ñ·Ï
+enum ItemType // ëª¨ë“  ì•„ì´í…œ ëª©ë¡
 {
 	Morphine,
 	Epinephrine,
@@ -21,7 +21,7 @@ enum ItemType // ¸ğµç ¾ÆÀÌÅÛ ¸ñ·Ï
 	Max
 };
 
-class ItemSetting // ¾ÆÀÌÅÛ ¼³Á¤ ¹× »ç¿ëÈ¿°ú
+class ItemSetting // ì•„ì´í…œ ì„¤ì • ë° ì‚¬ìš©íš¨ê³¼
 {
 protected:
 	string Name;
@@ -35,16 +35,17 @@ public:
 
 	virtual void use(Character* chara);
 
-	// onHit°¡ È£ÃâµÉ ¶§ ¹æÆĞ »ç¿ë ¿©ºÎ¸¦ È®ÀÎÇÏ´Â Á¤Àû ÇÔ¼ö Ãß°¡
+	// onHitê°€ í˜¸ì¶œë  ë•Œ ë°©íŒ¨ ì‚¬ìš© ì—¬ë¶€ë¥¼ í™•ì¸í•˜ëŠ” ì •ì  í•¨ìˆ˜ ì¶”ê°€
 	static bool ShieldCheck(Character* chara, int inputAttackPower);
 
-	// »óÁ¡¿ë getter
+	// ìƒì ìš© getter
 	string getName() const { return Name; }
 	ItemType getItemType() const { return itemtype; }
 	int getPrice() const { return Price; }
+	string getExplain() const { return Explain; }
 
 
-	// »óÁ¡¿ë setter
+	// ìƒì ìš© setter
 	void setName(const string& newName) { Name = newName; }
 	void setItemType(ItemType newType) { itemtype = newType; }
 	void setPrice(int newPrice) { Price = newPrice; }

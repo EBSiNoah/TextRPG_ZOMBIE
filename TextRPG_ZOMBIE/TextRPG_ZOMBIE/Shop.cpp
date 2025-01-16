@@ -45,7 +45,7 @@ void Shop::displayItems(Character& character)
         cout << setw(15) << itemList[i].getName();
         cout << setw(10) << itemList[i].getPrice();
         cout << setw(10) << itemList[i].getPrice() * 0.6;
-        cout << "     "  << effect[i];
+        cout << "     "  << itemList[i].getExplain();
         cout << endl;
     }
 
