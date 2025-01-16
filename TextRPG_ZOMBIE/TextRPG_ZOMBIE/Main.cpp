@@ -8,10 +8,15 @@
 #include "Shop.h"
 #include <iostream>
 #include <stdlib.h>
+#include <Windows.h>
 
 using namespace std;
 
 int main() {
+    // 콘솔의 출력 및 입력 인코딩을 UTF-8로 변경
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
     OpeningScene openingScene;
     BattleScene battleScene;
     ZombieFactory zombieFactory;
