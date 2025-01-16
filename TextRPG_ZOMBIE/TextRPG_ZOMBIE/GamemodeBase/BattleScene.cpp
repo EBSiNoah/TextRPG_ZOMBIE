@@ -13,7 +13,7 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
     MonsterDropItem dropSystem;
     Sleep(1000);
     cout << "===== 전투가 시작됩니다! =====" << endl;
-    vector<string> battleMentBox = { "두려워서 눈물범벅이지만 싸워보자..!", "살려줘요", "다리가 후들거리지만 싸워보자..!", "다래끼로 한쪽눈이 안 보이지만 싸워보자..." };
+    vector<string> battleMentBox = { "두려워서 눈물범벅이지만 싸워보자!", "살려줘요", "다리가 후들거리지만 싸워보자!", "다래끼로 한쪽눈이 안 보이지만 싸워보자.." };
     int randomValue = RandomUtil::GetRandomInt(0, battleMentBox.size() - 1);
     Sleep(1000);
     cout << "**********  " << zombie->Name << "을(를) 마주쳤다! " << battleMentBox[randomValue] << "  **********" << endl;
@@ -75,7 +75,7 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
             cout << endl;
         }
         else {
-            cout << "잘못된 선택입니다. 다시 입력하세요." << endl;
+            cout << "선택가능한 범위에서 벗어났습니다. 다시 선택해주세요. : " << endl;
             continue;
         }
 
@@ -94,7 +94,7 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
 
         // 플레이어 체력 확인
         if (player.HP <= 0) {
-            cout << player.Name << "이(가) 쓰러졌습니다! 전투 종료!" << endl;
+            cout << player.Name << "는 " << zombie->Name << "의 거친 이빨에 목덜미를 물렸습니다. 저항할 힘을 잃고, 눈앞이 서서히 어두워집니다." << endl;
             break;
         }
     }
