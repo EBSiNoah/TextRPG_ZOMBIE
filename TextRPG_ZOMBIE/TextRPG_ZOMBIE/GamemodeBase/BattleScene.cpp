@@ -82,6 +82,7 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
         // 좀비 체력 확인
         if (zombie->HP <= 0) {
             cout << zombie->Name << "이(가) 쓰러졌습니다!" << endl;
+            player.setBoostedTurns(0);
             dropSystem.dropItem(&player);
             break;
         }
