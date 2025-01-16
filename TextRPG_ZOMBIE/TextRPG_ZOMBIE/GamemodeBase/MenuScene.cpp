@@ -4,13 +4,13 @@ void MenuScene::showMenu(Character& player, BattleScene& battleScene, ZombieFact
 
     while (true) {
         cout << "**********  생존을 위한 선택  **********" << endl;
-        if (player.getLevel() != 10)
+        if (player.getLevel() >= 10)
         {
-            cout << "1. 적과 맞선다 (전투)" << endl;
+            cout << "1. 좀비의 왕과 맞선다 (전투)" << endl;
         }
         else
         {
-            cout << "1. 좀비의 왕과 맞선다 (전투)" << endl;
+            cout << "1. 적과 맞선다 (전투)" << endl;
         }
         cout << "2. 필요한 물자를 찾는다 (상점)" << endl;
         cout << "3. 거울로 상태를 점검한다 (상태 확인)" << endl;
