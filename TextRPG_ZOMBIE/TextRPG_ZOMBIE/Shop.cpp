@@ -24,7 +24,7 @@ const string effect[] = {
     "최대 체력 -30, 체력 +5000(약물 오용 주의)",
     "최대 체력 +80",
     "공격력 2배(3번의 전투로 제한)",
-    "피해 방허(1회용)",
+    "피해 방어(1회용)",
     "감염 상태 회복"
 };
 
@@ -69,7 +69,6 @@ void Shop::displayItems(Character& character)
     default:
         system("cls");
         return;
-// ****** 여기 수정 *****************
     }
 }
 
