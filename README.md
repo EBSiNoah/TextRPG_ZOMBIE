@@ -57,9 +57,6 @@
 - Item class 를 Character, Zombie 와 Shop class 에서 사용하는 방법
 - GameMode 로 게임의 흐름 제어
 
-## 트러블 슈팅
-...
-
 ## 기술 스택
 - Programming Language
   - C++
