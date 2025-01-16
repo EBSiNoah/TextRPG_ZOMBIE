@@ -95,19 +95,19 @@ void ItemSetting::use(Character* chara)
     switch (itemtype)
     {
     case Morphine:
-        cout << "체력 150 회복!";
+        cout << "체력 150 회복!" << endl;
         chara->HP += 150;
         if (chara->HP > chara->MaxHP)
             chara->HP = chara->MaxHP;
         break;
 
     case Epinephrine:
-        cout << "공격력 10 증가!";
+        cout << "공격력 10 증가!" << endl;
         chara->AttackPower += 10;
         break;
 
     case Methylamphetamine:
-        cout << "공격력 32 증가!";
+        cout << "공격력 32 증가!" << endl;
         chara->AttackPower += 32;
         break;
 
@@ -132,7 +132,7 @@ void ItemSetting::use(Character* chara)
         break;
 
     case Revital:
-        cout << "최대 체력 300 증가!";
+        cout << "최대 체력 300 증가!" << endl;
         chara->MaxHP += 300;
         chara->HP += 300;
         break;

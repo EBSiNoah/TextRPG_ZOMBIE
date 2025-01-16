@@ -16,7 +16,7 @@ void MonsterDropItem::dropItem(Character* chara)
     // 레비탈 : 10%
     chara->gainExp(chara->getLevel() * 50);
     chara->gainMoney(chara->getLevel() * 50);
-    if (droptable <= 30)
+    if (droptable <= 100)
     {
         if (dropcheck <= 25)
         {
@@ -49,6 +49,13 @@ void MonsterDropItem::dropItem(Character* chara)
             }
             chara->setInventory(static_cast<int>(Epinephrine), count + 1);
             cout << "전리품으로 '에피네프린'을 얻었습니다!" << endl;
+            {
+                ItemSetting DropUse(Epinephrine);
+                if (DropUse.getUseType() == 0)
+                {
+                    DropUse.use(chara);
+                }
+            }
         }
         else if (dropcheck <= 70)
         {
@@ -64,7 +71,7 @@ void MonsterDropItem::dropItem(Character* chara)
                 }
             }
             chara->setInventory(static_cast<int>(Vaccine), count + 1);
-            cout << "전리품으로 '에피네프린'을 얻었습니다!" << endl;
+            cout << "전리품으로 '백신'을 얻었습니다!" << endl;
         }
         else if (dropcheck <= 80)
         {
@@ -81,6 +88,13 @@ void MonsterDropItem::dropItem(Character* chara)
             }
             chara->setInventory(static_cast<int>(Methylamphetamine), count + 1);
             cout << "전리품으로 '메스암페타민'을 얻었습니다!" << endl;
+            {
+                ItemSetting DropUse(Methylamphetamine);
+                if (DropUse.getUseType() == 0)
+                {
+                    DropUse.use(chara);
+                }
+            }
         }
         else if (dropcheck <= 90)
         {
@@ -113,6 +127,13 @@ void MonsterDropItem::dropItem(Character* chara)
             }
             chara->setInventory(static_cast<int>(Revital), count + 1);
             cout << "전리품으로 '레비탈'을 얻었습니다!" << endl;
+            {
+                ItemSetting DropUse(Revital);
+                if (DropUse.getUseType() == 0)
+                {
+                    DropUse.use(chara);
+                }
+            }
         }
     }
 
