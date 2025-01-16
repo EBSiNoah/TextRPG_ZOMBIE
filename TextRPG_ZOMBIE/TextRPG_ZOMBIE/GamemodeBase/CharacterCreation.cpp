@@ -4,7 +4,17 @@ Character CharacterCreation::createCharacter() {
     string playerName;
     int choice;
     cout << "당신은 누구입니까? 이름을 남기세요. 그것이 당신의 유일한 흔적이 될지도 모릅니다. : ";
-    cin >> playerName;
+    while (true) {
+        cin >> playerName;
+        if (playerName.length() < 8)
+        {
+            break;
+        }
+        else
+        {
+            cout << "8글자 이내로 작성해주세요 : ";
+        }
+    }
 
     while (true) {
         cout << endl;

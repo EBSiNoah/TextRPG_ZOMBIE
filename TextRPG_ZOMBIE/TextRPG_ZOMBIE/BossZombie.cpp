@@ -30,7 +30,7 @@ void BossZombie::onHit(int inputAttackPower)
 {
 	Actor::onHit(inputAttackPower);
 
-	cout << "날카로운 무기가 " << Name << "의 피부를 찢습니다. " << Name << "은(는)" << inputAttackPower << "의 피해를 받았습니다." << endl;
+	cout << "날카로운 무기가 " << Name << "의 피부를 찢습니다. " << Name << "은(는)" << inputAttackPower << "의 피해를 받았습니다. (" << HP << "/" << MaxHP << ")" << endl;
 
 	if (isDead())
 	{
