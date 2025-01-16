@@ -95,6 +95,13 @@ void Shop::buyItem(Character& character)
         return;
     }
 
+    if (item_idx < 0 || item_idx >= itemList.size())
+    {
+        cout << "해당 자원이 존재하지 않습니다." << endl;
+        Sleep(1000);
+        return;
+    }
+
     cout << "현재 보유 금액 : " << character.getMoney() << "  ||  " << itemList[item_idx].getName() << "자원 구매 개수를 입력해주세요 : ";
     cin >> num;
     if (!num.empty() &&
