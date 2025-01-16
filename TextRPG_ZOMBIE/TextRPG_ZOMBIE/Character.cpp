@@ -199,7 +199,7 @@ bool Character::payMoney(int price)
     else
     {
         setMoney(Money - price);
-        cout << price << "원을 지불 했습니다. 잔액 (" << Money << ")";
+        cout << price << "원을 지불 했습니다. " << endl;
         return true;
     }
 }

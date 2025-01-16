@@ -60,7 +60,8 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
             for (const auto& item : inventory) {
                 if (item.second > 0 && item.first != 6) {
                     ItemSetting tempItem(static_cast<ItemType>(item.first));
-                    cout << "[" << displayIndex << "] " << tempItem.getName()
+                    cout << "[" << displayIndex << "] " << tempItem.getName() <<
+                        "( " << tempItem.getExplain() << " )"
                         << " - 보유 수량: " << item.second << "개" << endl;
                     itemMapping[displayIndex] = item.first;
                     displayIndex++;
@@ -143,6 +144,7 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
             }
         }
     }
+    player.setBoostedTurns(0);
 }
 int BattleScene::validateInput(const string& input, int min, int max) {
     try {

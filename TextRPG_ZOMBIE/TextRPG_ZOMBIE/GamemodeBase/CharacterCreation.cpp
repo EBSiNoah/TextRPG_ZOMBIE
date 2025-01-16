@@ -11,15 +11,12 @@ Character CharacterCreation::createCharacter() {
     cout << "당신은 누구입니까? 이름을 남기세요.\n그것이 당신의 유일한 흔적이 될지도 모릅니다.\n> ";
     while (true) {
         cin >> playerName;
-        if (playerName.length() >= 2 && playerName.length() < 8 &&
-            all_of(playerName.begin(), playerName.end(), [](unsigned char c) {
-                return isalnum(c) || (c >= 0xAC && c <= 0xD7);
-                }))
+        if (playerName.length() >= 2 && playerName.length() < 8)
         {
             break;
         }
         else {
-            cout << "특수문자를 제외한 2글자 이상, 8글자 이내로 작성해주세요 : ";
+            cout << "2글자 이상, 8글자 이내로 작성해주세요 : ";
         }
     }
 
