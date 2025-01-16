@@ -19,7 +19,7 @@ Shop::Shop()
 
 void Shop::displayItems(Character& character)
 {
-    string shop_idx = "-1";
+    string shop_idx = "";
     while (shop_idx != "3") {
         cout << setw(35) << "물자 거래소";
         cout << "                  보유 골드 : " << character.getMoney() << endl;
@@ -27,8 +27,9 @@ void Shop::displayItems(Character& character)
         cout << setw(10) << "번호";
         cout << setw(15) << "아이템";
         cout << setw(10) << "구매가격";
-        cout << setw(10) << "판매가격" << endl;
-        cout << setw(10) << "보유개수" << endl;
+        cout << setw(10) << "판매가격";
+        cout << setw(10) << "보유개수";
+        cout << setw(10) << "     아이템효과" << endl;
         cout << "============================================================================================" << endl;
 
         for (int i = 0; i < itemList.size(); i++) {
@@ -57,7 +58,10 @@ void Shop::displayItems(Character& character)
         }
         else if (shop_idx == "3")
         {
-            return;
+            cout << "메뉴로 돌아갑니다..." << endl;
+            Sleep(1000); 
+            system("cls");
+            break; 
         }
         else
         {
@@ -97,6 +101,7 @@ void Shop::buyItem(Character& character)
     {
         if (itemList[item_idx].getUseType() == 0)
         {
+            character.payMoney(itemList[item_idx].getPrice() * item_amount);
             character.addItem(item_idx, item_amount);
             ItemSetting item(static_cast<ItemType>(item_idx));
             item.use(&character);
@@ -121,6 +126,7 @@ void Shop::buyItem(Character& character)
     system("cls");
 
 }
+
 void Shop::sellItem(Character& character)
 {
     int item_idx;
