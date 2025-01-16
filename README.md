@@ -55,8 +55,8 @@
 
   ```python
   # 여기에 코드 입력
-  print("Hello, World!")
-</details> ```
+  print("Hello, World!")```
+</details>
 
 ## 프로젝트 로직
 ![image_720](https://github.com/user-attachments/assets/f097ca09-3705-4d4c-ba3b-81e1bb0048aa)
