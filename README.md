@@ -59,7 +59,7 @@ public:
 	virtual void onHit(int inputAttackPower);
 	bool isDead();
 	void printStatus();
-};</details>```
+}; </details> ```
 - Character class
 - Various Zombie class
 - Item class
