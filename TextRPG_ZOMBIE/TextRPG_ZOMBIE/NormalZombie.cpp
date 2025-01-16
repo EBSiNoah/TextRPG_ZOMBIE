@@ -22,8 +22,17 @@ int NormalZombie::GetMaxHP() const
     return MaxHP;
 }
 
-int NormalZombie::Attack() const
+int NormalZombie::Attack()
 {
+    int missChance = 40;  // 공격 미스 확률
+    int randomMiss = RandomUtil::GetRandomInt(1, 100);
+
+    if (randomMiss <= missChance)
+    {
+        cout << Name << "이(가) 공중에서 허우적거립니다." << endl;
+        return 0;
+    }
+
     return AttackPower;
 }
 

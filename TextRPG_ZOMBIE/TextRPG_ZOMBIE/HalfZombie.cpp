@@ -21,8 +21,17 @@ int HalfZombie::GetMaxHP() const
     return MaxHP;
 }
 
-int HalfZombie::Attack() const
+int HalfZombie::Attack()
 {
+    int missChance = 10;  // 공격 미스 확률
+    int randomMiss = RandomUtil::GetRandomInt(1, 100);
+
+    if (randomMiss <= missChance)
+    {
+        cout << Name << "은(는) 힘조절에 실패하여 중심을 잃고 휘청거립니다." << endl;
+        return 0;
+    }
+
     return AttackPower;
 }
 

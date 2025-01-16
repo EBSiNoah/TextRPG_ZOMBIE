@@ -114,7 +114,7 @@ void BattleScene::startBattle(Character& player, unique_ptr<Actor>& zombie) {
         int dodgeChance = RandomUtil::GetRandomInt(1, 100);
         if (dodgeChance <= 10) {
             Sleep(1000);
-            cout << player.Name << "이(가) 좀비의 공격을 회피했습니다!" << endl;
+            cout << player.Name << "이(가) " << zombie->Name << "의 공격을 회피했습니다!" << endl;
         }
         else {
             player.onHit(zombie->Attack());

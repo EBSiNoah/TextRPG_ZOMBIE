@@ -21,8 +21,19 @@ int VariantZombie::GetMaxHP() const
     return MaxHP;
 }
 
-int VariantZombie::Attack() const
+int VariantZombie::Attack()
 {
+    int missChance = 20;  // 공격 미스 확률
+    int randomMiss = RandomUtil::GetRandomInt(1, 100);
+
+    if (randomMiss <= missChance)
+    {
+        cout << Name << "의 손톱이 옷자락만 살짝 스쳤습니다!" << endl;
+        return 0;
+    }
+
+    return AttackPower;
+
     return AttackPower;
 }
 

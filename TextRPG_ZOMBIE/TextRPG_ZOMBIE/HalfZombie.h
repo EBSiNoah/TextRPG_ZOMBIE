@@ -11,7 +11,7 @@ public:
 
     string GetName() const;
     int GetMaxHP() const;
-    int Attack() const;
+    int Attack() override;
     void onHit(int inputAttackPower) override;
     void printStatus() const;
 };

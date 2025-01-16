@@ -3,46 +3,49 @@
 void EndingScene::showEnding()
 {
     cout << R"(
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWkcc0MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWOoolcl0MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOcckWMMMMMMWWWWWOlllllllc' .,lllllc:c::l0WWWWXd::::oKMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd..cXXXNNNkccccc::::::,'''''''''''......';;;;;ldoddxXMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN00o'.',:::ccccc:::::;;,,,,,,,,,,,,,,,,,........';coKMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWd. .'cc:;;;;;,,,,,,,,,,,,;:::::;,,,,,,''...  .:ddxkkkkONMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWKxxl,,,,,;,,,''.......''';ccc:::::;'',,,'........  .,::::codkXMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWd..;dddc;,,,,'..'''''',,;;:::::ccc:::'...........  .kMMMMNxldXMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWWd...,,,,'';cc:;,;,,,;,,'';ccdkkkkkkkxl:;'......... .,:lKWWWMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOc::cccclllll:,,,,,,,,,,,'..cxkkOkl;:dOkkkd,...........   ,:lOXNWMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMx..;xko:::oxx:...,,,,,,,,'.':ooxkkxddxkkdol'......... ...,d0ko:oKMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMO:;:cccllllcc,...'''''...',,'..;ccloolcc,...........  .dXXWMWNXXWMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWWOlc,......',,'..',,'..',,,''................... .,:lKMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWo.  ...,ccccc;..;cc,..;cc;''..............   .kMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMKddddddc'',,,....,,....,,'...........        .,:l0WWMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM0do;........................   ...........',:kXXWMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWx..'::'........'::'............'..  ...........,d0KNMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWk;,'..................     '::'..   ..........    'OMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWOcccc:,.....,::.      ....';c:.   ......  ...  .:oxXMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMW0dodxdocc'.........',ldl.  ......   .....   .OMMMMMMMMMMMMMMM
-MWOdddddddddddkNMMWX0XWMMMMMWK0NMMMMMNKKKWMMMMOcxNMMWNXXXXXXXXXXNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMNl  ....... .;lc,...  .....    ......  .,;l0NWWMMMMMMMMM
-MWklll,   'cllxNMMNl.cXNNNNNO,.xMMMXo;;:;;dXMWo ;KMMXl.,ccccccccdXMMMMMMMMMMMMMMMMMMMMMMMMMMMMNl........  .:do.   ........   .........   .'cKMMMMMMMMM
-MNOxo:',c;';ldkXMMNc .:ccc:c;..dMMNc :KW0; lNWo ;XMMX; cXNNNNNNNNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMWo........  .,c:.  .........   ........      .OMMMMMMMMM
-W0l:cdxl'lkdl:cOWMNc ,kOOOOOd. dMM0'.xMMMx.,KWo ;XMMX; ;O000000O0NMMMMMMMMMMMMMMMMMMMMMMMMMMKkx;. . ....         ......     .....          .OMMMMMMMMM
-0l:cccc,.,:cccccOMWo.,::'.,c:',kMMK, oWMWo ;XWo ;KMMNd,;::::::::lKMMMMMMMMMMMMMMMMMMMMMMMMMWl   .........      ........            ...     .OMMMMMMMMM
-WXkc::::::::::xKNMMNXXXO' lXXXNWMMWk'.cdc.,OWWo ;KMMMWWWWWWWWWWWWMMMMMMMMMMMMMMMMMMMMMMMMMMW0ol,               .....          ........     .OMMMMMMMMM
-MMx..cdddddl. oWWOlllcl:. 'clllcoKMMXxllokXMMMo ;XNxccccccccccccccdXMMMMMMMMMMMMMMMMMMMMMMMWk;;.  ......      .......      ...........     .OMMMMMMMMM
-MMx..;ccccc:..dMWKxxxxxxxkxxxxxxkXMMMMMMMMMMMWd ;XW0kkkkkkkkkkkkkk0NMMMMMMMMMMMMMMMMMMMMMMMWl   ...,,...   ...''',,,''..     ........    ..;0MMMMMMMMM
-MMN0OOOOOOOOO0XMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXk0WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWd''.........   .,,.....'','...   ';;;;,'... .coxXMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWNNx:;.  ...   .,'.     ...  .,;l0WNNWKdc:...  .lxxxxxxxON
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWkcccc:.   ..   ...     .kWMMMNkooooc.      .   .;cdN
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNd
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWNd:::::::::::::;.          .,::::lKWWWWWWWWMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNxlllllllllldXMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM                                                              MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM                              E  N  D                             MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM                                                              MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-)" << endl;
+[@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
+[@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
+[@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     @@@@    T@@@@@@@@@@|
+[@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@_           _|@@@@@@@@@@|
+[@@@@@@@@@@@@    !B      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@P     =        _B     B@@@@@@|
+[@@@@@"      =      -_~~~=Q@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@B                        @@@@@@|
+[@@@@@gmm                  '"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                      :mgg@@@@@@|
+[@@@P'                        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  gggggggF      gg       B   B@@|
+[@]      _               'TL__@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"        @@@_          @@|
+[@]   ~~.                  ""@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        ,  @@@@@~    ~,  @@|
+[@@@@@      ,_@@ [    "_      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      _&@   @@@@@____@@@@@@|
+[@@@@@    _g@@@@ [     @g_    @@@@@@@@@@@@@@@@@@         @@@@@@@@@@@@@@@@@@@@@@@@@    __@@@@  @@@@@@@@@@@@@@@|
+[@@@@@@@@@@@@@@  @@_   @@@@@@@@@@@@@@@@@@@@@@               @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@j |@@@@@@@@@@@@@@|
+[@@@@@@@@@@@@@@  @@@   @@@@@@@@@@@@@@@@@@@@                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@] |@@@@@@@@@@@@@@|
+[@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@                      @@@@@@@@@@@@@@@@@@@@@@@@@@@@],'@@@@@@@@@@@@@@|
+[@@@@@@@@@@@@@" ,@@@@@@@@@@@@@@@@@@@@@@@@@                      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@| @@@@@@@@@@@@@@|
+[@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@| @@@@@@@@@@@@@@|
+[@@@@@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@                   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@|
+[@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@|
+[@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@|
+[@@@@@@@@@@@F :@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  |@@@@@@@@@@@@|
+[@@@@@@@@@@@" |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ '@@@@@@@@@@@@|
+[@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@|
+[@@@@@@@@@@, @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@|
+[@@@@@@@@@"  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  "@@@@W?F@@@|
+[@W@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@H__' "@|
+|~F~[@@@   g@@@W=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ =@@   |@gw.   @@|
+,   _@@P  [@@@h!  ""[@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@._- ,"   [@B"" .  9|
+[@  @M;   gF-@@_ 8~  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@_-        @@L_    @@!
+'=' "     !^  "__...".'.A@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@_, _@B  8@BQ^    ,.
+                          @@@@@@@@@@@@                                 @@@@@@@@@@@| @g  ~=    _\    
+               @@@@@@@@@@@@@@@@@@@@             E     N      D            @@@@@@@@@@@@@@@@@@@@@@M],!9@Er?' .~            
+ ______@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                 @@@@@@@@@@@@@@@"[@p:  _=                   
+[@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@BN=' =__    _""                
+[@@@@@@@@""' "j@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@~~~f  .~    ,3M                   
+[@@@@@@@@@1,  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@BBBBBBBG----.    .F           ~                
+[@@@@@@@@@@g   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@RB'"" '  '    "   :           ._'   ."':          
+[@=0@@@W?@@@@  T@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                                   
+'f"" @;" !@@@g  '9@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ___________________________                       
+     @    B@@?@g  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@gg@@@@@@@@@@@@@@@@@@@@@@@@@@@1______                
+         w~T~ T@   Fd@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@L________       
+       
+                                                                                                              
+                                                                                                              
+                                                                              ]|) _ _ | _"_!   '" _ _ !._     )" << endl;
 }
