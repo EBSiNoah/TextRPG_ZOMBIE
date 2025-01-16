@@ -42,7 +42,23 @@
 - 전투
 
 ## 주요 기능
-- <details><summary>Actor class</summary>summary test</details>
+- <details><summary>Actor class</summary>
+```class Actor
+{
+private:
+	string Name;
+	int AttackPower;
+	int HP;
+	int MaxHP;
+public:
+	Actor();
+	Actor(string inputName, int inputAttackPower, int inputMaxHP);
+
+	virtual int Attack();
+	virtual void onHit(int inputAttackPower);
+	bool isDead();
+	void printStatus();
+};</details>
 - Character class
 - Various Zombie class
 - Item class
