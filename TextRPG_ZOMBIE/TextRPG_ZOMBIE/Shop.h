@@ -4,7 +4,8 @@
 #include "Character.h"
 #include "Item.h"
 #include <windows.h>
-
+#include <algorithm>
+#include <cctype>
 
 class Shop {
 private:

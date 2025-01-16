@@ -78,25 +78,41 @@ void Shop::buyItem(Character& character)
     int item_idx;
     int item_amount;
     cout << "구입을 원하는 자원 번호를 입력해주세요(취소: -1): ";
-    cin >> item_idx;
-
-    if (item_idx == -1)
+    string num; cin >> num;
+    if (!num.empty() &&
+        (std::all_of(num.begin(), num.end(), ::isdigit) ||
+            (num[0] == '-' && num.size() > 1 && std::all_of(num.begin() + 1, num.end(), ::isdigit))))
+    {
+        item_idx = stoi(num);
+    }
+    else
     {
         return;
     }
-    else if (item_idx < 0 || item_idx >= itemList.size())
+
+    if (item_idx < 0)
     {
-        cout << "아이템 목록에 있는 아이템만 구매할 수 있습니다." << endl;
         return;
     }
 
     cout << "현재 보유 금액 : " << character.getMoney() << "  ||  " << itemList[item_idx].getName() << "자원 구매 개수를 입력해주세요 : ";
-    cin >> item_amount;
-
-    if (item_amount == 0)
+    cin >> num;
+    if (!num.empty() &&
+        (std::all_of(num.begin(), num.end(), ::isdigit) ||
+            (num[0] == '-' && num.size() > 1 && std::all_of(num.begin() + 1, num.end(), ::isdigit))))
+    {
+        item_amount = stoi(num);
+    }
+    else
     {
         return;
     }
+
+    if (item_amount <= 0)
+    {
+        return;
+    }
+
     else if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
     {
         if (itemList[item_idx].getUseType() == 0)
@@ -134,27 +150,60 @@ void Shop::sellItem(Character& character)
     int item_idx;
     int item_amount;
     cout << "판매를 원하는 자원 번호를 입력해주세요: ";
-    cin >> item_idx;
+    string num; cin >> num;
+    if (!num.empty() &&
+        (std::all_of(num.begin(), num.end(), ::isdigit) ||
+            (num[0] == '-' && num.size() > 1 && std::all_of(num.begin() + 1, num.end(), ::isdigit))))
+    {
+        item_idx = stoi(num);
+    }
+    else
+    {
+        return;
+    }
 
     if (item_idx < 0)
+    {
+        return;
+    }
+
+    if (item_idx < 0 || item_idx >= itemList.size())
     {
         cout << "해당 자원이 존재하지 않습니다." << endl;
         Sleep(1000);
         return;
     }
-
+    
     if (character.getInventory()[item_idx].second > 0)
     {
-        cout << "현재" << itemList[item_idx].getName() << " 보유 개수 : " << character.getInventory()[item_idx].second << " || 자원 판매 개수를 입력해주세요 : ";
-        cin >> item_amount;
+        cout << "현재 " << itemList[item_idx].getName() << " 보유 개수: "
+            << character.getInventory()[item_idx].second
+            << " || 자원 판매 개수를 입력해주세요: ";
+        cin >> num;
 
-        if (character.getInventory()[item_idx].second < item_amount)
+        if (!num.empty() && std::all_of(num.begin(), num.end(), ::isdigit))
         {
-            cout << "보유중인 자원보다 더 많은 자원을 판매할 수 없습니다." << endl;
+            item_amount = stoi(num);
+        }
+        else
+        {
+            cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+            return;
+        }
+
+        if (item_amount <= 0)
+        {
+            cout << "판매량은 1 이상이어야 합니다." << endl;
             Sleep(1000);
             return;
         }
 
+        if (character.getInventory()[item_idx].second < item_amount)
+        {
+            cout << "보유 중인 자원보다 더 많은 자원을 판매할 수 없습니다." << endl;
+            Sleep(1000);
+            return;
+        }
         character.gainMoney(itemList[item_idx].getPrice() * 0.6 * item_amount);
         character.deleteItem(item_idx, item_amount);
         cout << "남은 돈 : " << character.getMoney();

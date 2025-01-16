@@ -48,31 +48,24 @@ void Character::addItem(const int itemIndex, const int amount)
 // Delete Item
 void Character::deleteItem(const int itemIndex, const int amount)
 {
+    // 인벤토리에 아이템이 있는지 확인
     if (Inventory.find(itemIndex) != Inventory.end())
     {
-        if (Inventory[itemIndex] > amount)
+        if (Inventory[itemIndex] >= amount)
         {
             Inventory[itemIndex] -= amount;
+            cout << "아이템 차감: " << itemIndex << "번 아이템을 "
+                << amount << "개 제거했습니다. 남은 수량: " << Inventory[itemIndex] << endl;
         }
         else
         {
-            // 남은 수량이 제거할 수량보다 적으면 아이템 삭제
-            //Inventory.erase(itemIndex);
-           /* cout << "아이템이 모두 제거했습니다: "
-                << ItemSetting(static_cast<ItemType>(itemIndex)).getName() << endl;*/
-            return;
+            cout << "제거하려는 수량이 현재 보유 수량보다 많음" << endl;
         }
-
-        // 아이템 이름 가져오기
-        ItemSetting tempItem(static_cast<ItemType>(itemIndex));
-        string itemName = tempItem.getName();
-
-        cout << "아이템 차감: " << itemName << "을(를) " << amount
-            << "개 제거했습니다. 남은 수량: " << Inventory[itemIndex] << endl;
     }
     else
     {
-        cout << "제거하려는 아이템이 없습니다." << endl;
+        // 인벤토리에 아이템이 없을 경우
+        cout << "제거하려는 아이템이 인벤토리에 없습니다." << endl;
     }
 }
 
