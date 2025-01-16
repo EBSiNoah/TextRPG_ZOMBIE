@@ -42,7 +42,7 @@ public:
 	string getName() const { return Name; }
 	ItemType getItemType() const { return itemtype; }
 	int getPrice() const { return Price; }
-	int getUseType() const { return UseType; }
+	bool getUseType() const { return UseType; }
 	string getExplain() const { return Explain; }
 
 
