@@ -87,11 +87,15 @@ void Shop::buyItem(Character& character)
     }
     else
     {
+        cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+        Sleep(1000);
         return;
     }
 
     if (item_idx < 0)
     {
+        cout << "잘못된 입력입니다." << endl;
+        Sleep(1000);
         return;
     }
 
@@ -112,11 +116,15 @@ void Shop::buyItem(Character& character)
     }
     else
     {
+        cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+        Sleep(1000);
         return;
     }
 
     if (item_amount <= 0)
     {
+        cout << "잘못된 입력입니다." << endl;
+        Sleep(1000);
         return;
     }
 
@@ -166,11 +174,15 @@ void Shop::sellItem(Character& character)
     }
     else
     {
+        cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+        Sleep(1000);
         return;
     }
 
     if (item_idx < 0)
     {
+        cout << "잘못된 입력입니다." << endl;
+        Sleep(1000);
         return;
     }
 
@@ -195,6 +207,7 @@ void Shop::sellItem(Character& character)
         else
         {
             cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+            Sleep(1000);
             return;
         }
 
