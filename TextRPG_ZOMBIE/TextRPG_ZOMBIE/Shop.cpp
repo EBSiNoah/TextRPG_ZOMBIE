@@ -17,17 +17,6 @@ Shop::Shop()
     // 반복문의 int를 ItemType로 변경하여 ItemSetting 객체 생성 후 벡터에 저장
 }
 
-const string effect[] = {
-    "체력 +50",
-    "공격력 +10",
-    "공격력 +50",
-    "최대 체력 -30, 체력 +5000(약물 오용 주의)",
-    "최대 체력 +80",
-    "공격력 2배(3번의 전투로 제한)",
-    "피해 방어(1회용)",
-    "감염 상태 회복"
-};
-
 void Shop::displayItems(Character& character)
 {
 
