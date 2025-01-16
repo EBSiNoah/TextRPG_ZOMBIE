@@ -75,60 +75,21 @@ void Shop::displayItems(Character& character)
 
 void Shop::buyItem(Character& character)
 {
-    int item_idx;
-    int item_amount;
     cout << "구입을 원하는 자원 번호를 입력해주세요(취소: -1): ";
     string num; cin >> num;
-    if (!num.empty() &&
-        (std::all_of(num.begin(), num.end(), ::isdigit) ||
-            (num[0] == '-' && num.size() > 1 && std::all_of(num.begin() + 1, num.end(), ::isdigit))))
+    int item_idx = validateInput(num, 0, itemList.size() - 1);
+    if (item_idx == -1)
     {
-        item_idx = stoi(num);
-    }
-    else
-    {
-        cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
-        Sleep(1000);
-        return;
-    }
-
-    if (item_idx < 0)
-    {
-        cout << "잘못된 입력입니다." << endl;
-        Sleep(1000);
-        return;
-    }
-
-    if (item_idx < 0 || item_idx >= itemList.size())
-    {
-        cout << "해당 자원이 존재하지 않습니다." << endl;
-        Sleep(1000);
         return;
     }
 
     cout << "현재 보유 금액 : " << character.getMoney() << "  ||  " << itemList[item_idx].getName() << "자원 구매 개수를 입력해주세요 : ";
     cin >> num;
-    if (!num.empty() &&
-        (std::all_of(num.begin(), num.end(), ::isdigit) ||
-            (num[0] == '-' && num.size() > 1 && std::all_of(num.begin() + 1, num.end(), ::isdigit))))
-    {
-        item_amount = stoi(num);
-    }
-    else
-    {
-        cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
-        Sleep(1000);
+    int item_amount = validateInput(num, 1, 100);
+    if (item_amount == -1) {
         return;
     }
-
-    if (item_amount <= 0)
-    {
-        cout << "잘못된 입력입니다." << endl;
-        Sleep(1000);
-        return;
-    }
-
-    else if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
+    if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
     {
         if (itemList[item_idx].getUseType() == 0)
         {
@@ -162,37 +123,15 @@ void Shop::buyItem(Character& character)
 
 void Shop::sellItem(Character& character)
 {
-    int item_idx;
-    int item_amount;
+    string num;
     cout << "판매를 원하는 자원 번호를 입력해주세요: ";
-    string num; cin >> num;
-    if (!num.empty() &&
-        (std::all_of(num.begin(), num.end(), ::isdigit) ||
-            (num[0] == '-' && num.size() > 1 && std::all_of(num.begin() + 1, num.end(), ::isdigit))))
-    {
-        item_idx = stoi(num);
-    }
-    else
-    {
-        cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
-        Sleep(1000);
+    cin >> num;
+
+    int item_idx = validateInput(num, 0, itemList.size() - 1);
+    if (item_idx == -1) {
         return;
     }
 
-    if (item_idx < 0)
-    {
-        cout << "잘못된 입력입니다." << endl;
-        Sleep(1000);
-        return;
-    }
-
-    if (item_idx < 0 || item_idx >= itemList.size())
-    {
-        cout << "해당 자원이 존재하지 않습니다." << endl;
-        Sleep(1000);
-        return;
-    }
-    
     if (character.getInventory()[item_idx].second > 0)
     {
         cout << "현재 " << itemList[item_idx].getName() << " 보유 개수: "
@@ -200,41 +139,52 @@ void Shop::sellItem(Character& character)
             << " || 자원 판매 개수를 입력해주세요: ";
         cin >> num;
 
-        if (!num.empty() && std::all_of(num.begin(), num.end(), ::isdigit))
-        {
-            item_amount = stoi(num);
-        }
-        else
-        {
-            cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
-            Sleep(1000);
+        int item_amount = validateInput(num, 1, character.getInventory()[item_idx].second);
+        if (item_amount == -1) {
             return;
         }
 
-        if (item_amount <= 0)
-        {
-            cout << "판매량은 1 이상이어야 합니다." << endl;
-            Sleep(1000);
-            return;
-        }
-
-        if (character.getInventory()[item_idx].second < item_amount)
-        {
-            cout << "보유 중인 자원보다 더 많은 자원을 판매할 수 없습니다." << endl;
-            Sleep(1000);
-            return;
-        }
         character.gainMoney(itemList[item_idx].getPrice() * 0.6 * item_amount);
         character.deleteItem(item_idx, item_amount);
         cout << "남은 돈 : " << character.getMoney();
         Sleep(1000);
+        system("cls");
     }
-    else
-    {
-        cout << "보유 하지 않은 아이템을 판매할 수 없습니다." << endl;
+}
+
+int Shop::validateInput(const string& input, int min, int max) {
+    try {
+        if (input.empty() ||
+            (!std::all_of(input.begin(), input.end(), ::isdigit) &&
+                !(input[0] == '-' && input.size() > 1 && std::all_of(input.begin() + 1, input.end(), ::isdigit))))
+        {
+            throw invalid_argument("잘못된 입력입니다. 숫자를 입력해주세요.");
+        }
+
+        if (input.length() > 10) {
+            throw out_of_range("입력값이 너무 큽니다.");
+        }
+
+        int value = stoi(input);
+
+        if (value < min) {
+            throw out_of_range("음수나 0은 입력할 수 없습니다.");
+        }
+        if (value > max) {
+            throw out_of_range("값을 확인해 주세요.");
+        }
+
+        return value; 
+    }
+    catch (const invalid_argument& e) {
+        cout << e.what() << endl;
         Sleep(1000);
     }
-    system("cls");
+    catch (const out_of_range& e) {
+        cout << e.what() << endl;
+        Sleep(1000);
+    }
+    return -1;
 }
 
 Shop::~Shop()

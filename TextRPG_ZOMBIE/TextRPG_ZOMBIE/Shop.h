@@ -20,5 +20,7 @@ public:
 	void buyItem(Character& character);
 	void sellItem(Character& character);
 
+	int validateInput(const string& input, int min, int max);
+
 };
 #endif
