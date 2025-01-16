@@ -46,4 +46,5 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 )" << endl;
     
     //cout << "당신은 마지막 생존자입니다. 살아남기 위해서 그것들과 맞서 싸우세요" << endl;
+    cout << "하... 테스트용 문구입니다.. 제발 ... 잘 나오기를... 제발!!!!!!!!!!!!!!!!!!!!!" << endl;
 }
