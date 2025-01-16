@@ -17,59 +17,56 @@ Shop::Shop()
     // 반복문의 int를 ItemType로 변경하여 ItemSetting 객체 생성 후 벡터에 저장
 }
 
-const string effect[] = {
-    "체력 +50",
-    "공격력 +10",
-    "공격력 +50",
-    "최대 체력 -30, 체력 +5000(약물 오용 주의)",
-    "최대 체력 +80",
-    "공격력 2배(3번의 전투로 제한)",
-    "피해 방어(1회용)",
-    "감염 상태 회복"
-};
-
 void Shop::displayItems(Character& character)
 {
+    string shop_idx = "-1";
+    while (shop_idx != "3") {
+        cout << setw(35) << "물자 거래소";
+        cout << "                  보유 골드 : " << character.getMoney() << endl;
+        cout << "============================================================================================" << endl;
+        cout << setw(10) << "번호";
+        cout << setw(15) << "아이템";
+        cout << setw(10) << "구매가격";
+        cout << setw(10) << "판매가격" << endl;
+        cout << setw(10) << "보유개수" << endl;
+        cout << "============================================================================================" << endl;
 
+        for (int i = 0; i < itemList.size(); i++) {
+            cout << setw(10) << itemList[i].getItemType();
+            cout << setw(15) << itemList[i].getName();
+            cout << setw(10) << itemList[i].getPrice();
+            cout << setw(10) << itemList[i].getPrice() * 0.6;
+            cout << setw(10) << character.getInventory()[i].second;
+            cout << "     " << itemList[i].getExplain();
+            cout << endl;
+        }
+        cout << "============================================================================================" << endl;
+        cout << setw(10) << "1. 자원 구입   2. 자원 판매  3. 메뉴로 돌아가기" << endl;
+        cout << " 점검 생존을 위해 선택하세요. : ";
+        cin >> shop_idx;
 
-    cout << setw(35) << "물자 거래소" << endl;
-    cout << "========================================================" << endl;
-    cout << setw(10) << "번호";
-    cout << setw(15) << "아이템";
-    cout << setw(10) << "구매가격";
-    cout << setw(10) << "판매가격" << endl;
-    cout << "========================================================" << endl;
-
-    for (int i = 0; i < itemList.size();i++) {
-        cout << setw(10) << itemList[i].getItemType();
-        cout << setw(15) << itemList[i].getName();
-        cout << setw(10) << itemList[i].getPrice();
-        cout << setw(10) << itemList[i].getPrice() * 0.6;
-        cout << "     "  << effect[i];
-        cout << endl;
+        if (shop_idx == "1")
+        {
+            buyItem(character);
+            system("cls");
+        }
+        else if (shop_idx == "2")
+        {
+            sellItem(character);
+            system("cls");
+        }
+        else if (shop_idx == "3")
+        {
+            return;
+        }
+        else
+        {
+            cout << "잘못 입력 하셨습니다.";
+            Sleep(1000);
+            system("cls");
+        }
     }
 
-    cout << "========================================================" << endl;
-
-    int shop_idx;
-    cout << setw(10) << "1. 자원 구입   2. 자원 판매   3. 현재 자원  4. 메뉴로 돌아가기" << endl;
-    cout << " 점검 생존을 위해 선택하세요. : ";
-    cin >> shop_idx;
-    switch (shop_idx) {
-    case 1:
-        buyItem(character);
-        break;
-    case 2:
-        sellItem(character);
-        break;
-    case 3:
-        character.printStatus();
-        system("cls");
-        return;
-    default:
-        system("cls");
-        return;
-    }
 }
 
 void Shop::buyItem(Character& character)
@@ -92,13 +89,29 @@ void Shop::buyItem(Character& character)
     cout << "현재 보유 금액 : " << character.getMoney() << "  ||  " << itemList[item_idx].getName() << "자원 구매 개수를 입력해주세요 : ";
     cin >> item_amount;
 
-    if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
+    if (item_amount == 0)
     {
-        character.addItem(item_idx, item_amount);
-        character.payMoney(itemList[item_idx].getPrice()*item_amount);
-        cout << "보유 중인 " << itemList[item_idx].getName() << " : " << character.getInventory()[item_idx].second
-            << " || 남은 돈 : " << character.getMoney() << endl;
-        Sleep(1000);
+        return;
+    }
+    else if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
+    {
+        if (itemList[item_idx].getUseType() == 0)
+        {
+            character.addItem(item_idx, item_amount);
+            ItemSetting item(static_cast<ItemType>(item_idx));
+            item.use(&character);
+            cout << "아이템을 사용했습니다! " << "(" << itemList[item_idx].getExplain() << ")" << endl;
+            Sleep(3000);
+        }
+        else
+        {
+            character.addItem(item_idx, item_amount);
+            character.payMoney(itemList[item_idx].getPrice() * item_amount);
+            cout << "보유 중인 " << itemList[item_idx].getName() << " : " << character.getInventory()[item_idx].second
+                << " || 남은 돈 : " << character.getMoney() << endl;
+            Sleep(2000);
+        }
+
     }
     else
     {

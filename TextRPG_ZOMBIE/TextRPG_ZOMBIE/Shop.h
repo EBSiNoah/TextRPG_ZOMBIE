@@ -3,6 +3,7 @@
 #define SHOP_H
 #include "Character.h"
 #include "Item.h"
+#include <windows.h>
 
 
 class Shop {

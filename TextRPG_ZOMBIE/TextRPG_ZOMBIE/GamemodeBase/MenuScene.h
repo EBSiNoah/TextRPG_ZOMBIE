@@ -6,6 +6,7 @@
 #include "../ZombieFactory.h"
 #include "../Shop.h"
 #include <iostream>
+#include <windows.h>
 using namespace std;
 
 class MenuScene {
