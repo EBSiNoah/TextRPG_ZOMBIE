@@ -40,18 +40,19 @@ void Shop::displayItems(Character& character)
     cout << setw(10) << "판매가격" << endl;
     cout << "========================================================" << endl;
 
-    for (const auto& item : itemList) {
-        cout << setw(10) << item.getItemType();
-        cout << setw(15) << item.getName();
-        cout << setw(10) << item.getPrice();
-        cout << setw(10) << item.getPrice() * 0.6;
+    for (int i = 0; i < itemList.size();i++) {
+        cout << setw(10) << itemList[i].getItemType();
+        cout << setw(15) << itemList[i].getName();
+        cout << setw(10) << itemList[i].getPrice();
+        cout << setw(10) << itemList[i].getPrice() * 0.6;
+        cout << "     "  << effect[i];
         cout << endl;
     }
 
     cout << "========================================================" << endl;
 
     int shop_idx;
-    cout << setw(10) << "1. 자원 구입   2. 자원 판매   3. 현재 자원" << endl;
+    cout << setw(10) << "1. 자원 구입   2. 자원 판매   3. 현재 자원  4. 메뉴로 돌아가기" << endl;
     cout << " 점검 생존을 위해 선택하세요. : ";
     cin >> shop_idx;
     switch (shop_idx) {
@@ -61,8 +62,13 @@ void Shop::displayItems(Character& character)
     case 2:
         sellItem(character);
         break;
-    default :
-        break;
+    case 3:
+        character.printStatus();
+        system("cls");
+        return;
+    default:
+        system("cls");
+        return;
 // ****** 여기 수정 *****************
     }
 }
@@ -71,19 +77,23 @@ void Shop::buyItem(Character& character)
 {
     int item_idx;
     int item_amount;
-    cout << "구입을 원하는 자원 번호를 입력해주세요: ";
+    cout << "구입을 원하는 자원 번호를 입력해주세요(취소: -1): ";
     cin >> item_idx;
 
-    if (item_idx < 0 || item_idx >= itemList.size())
+    if (item_idx == -1)
+    {
+        return;
+    }
+    else if (item_idx < 0 || item_idx >= itemList.size())
     {
         cout << "아이템 목록에 있는 아이템만 구매할 수 있습니다." << endl;
         return;
     }
 
-    cout << itemList[item_idx].getName() << "현재 보유 금액 : " << character.getMoney() << "  ||  자원 구매 개수를 입력해주세요: ";
+    cout << "현재 보유 금액 : " << character.getMoney() << "  ||  " << itemList[item_idx].getName() << "자원 구매 개수를 입력해주세요 : ";
     cin >> item_amount;
 
-    if (character.getMoney() > item_amount * itemList[item_idx].getPrice())
+    if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
     {
         character.addItem(item_idx, item_amount);
         character.payMoney(itemList[item_idx].getPrice()*item_amount);
@@ -115,10 +125,10 @@ void Shop::sellItem(Character& character)
 
     if (character.getInventory()[item_idx].second > 0)
     {
-        cout << itemList[item_idx].getName() << "현재 보유 개수: " << character.getInventory()[item_idx].second << "  ||  자원 판매 개수를 입력해주세요: ";
+        cout << "현재" << itemList[item_idx].getName() << " 보유 개수 : " << character.getInventory()[item_idx].second << " || 자원 판매 개수를 입력해주세요 : ";
         cin >> item_amount;
 
-        if (character.getInventory()[item_idx].second < item_amount)
+        if (character.getInventory()[item_idx].second <= item_amount)
         {
             cout << "보유중인 자원보다 더 많은 자원을 판매할 수 없습니다." << endl;
             Sleep(1000);
