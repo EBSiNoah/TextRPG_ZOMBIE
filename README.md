@@ -42,12 +42,12 @@
 - 전투
 
 ## 주요 기능
-- Actor class
-- <details><summary>Character class</summary>image</details>
-- <details><summary>Various Zombie class</summary>image</details>
-- <details><summary>Item class</summary>image</details>
-- <details><summary>Shop class</summary>image</details>
-- <details><summary>GameMode class</summary>image</details>
+- [Actor class](https://gist.github.com/EBSiNoah/06b0d99ce4e293f7d433e58474a25f4f)
+- [Character class](https://gist.github.com/EBSiNoah/2dc2c82a8ec42f3b16a1e402b3c748c1)
+- [Various Zombie class](https://gist.github.com/EBSiNoah/f9a378e84cb8519958a71860b42c4c59)
+- [Item class](https://gist.github.com/EBSiNoah/567fe8e59a7e781bc1073cefbe976964)
+- [Shop class](https://gist.github.com/EBSiNoah/ca7821764522ae9dae7e72ddc3433539)
+- [GameMode class](https://gist.github.com/EBSiNoah/ba84b3722b951d60cdce6b56077a061c)
 
 ## 프로젝트 로직
 ![image_720](https://github.com/user-attachments/assets/f097ca09-3705-4d4c-ba3b-81e1bb0048aa)
