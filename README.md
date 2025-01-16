@@ -6,7 +6,8 @@
 
 **프롤로그**
 
-...
+![prologue](https://github.com/user-attachments/assets/a66058a0-4beb-4c10-a5d9-703f1c00c973)
+
 
 **좀보이드란?**
 
