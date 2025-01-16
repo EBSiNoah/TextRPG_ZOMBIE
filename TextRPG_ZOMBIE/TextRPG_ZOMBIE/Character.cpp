@@ -255,7 +255,13 @@ void Character::onHit(int inputAttackPower) {
 
     if (isDead())
     {
+        system("cls");
+        Sleep(1000);
         cout << Name << "이(가) 피해를 버티지 못하고 쓰러져 버렸습니다. 게임을 종료합니다.";
+        Sleep(2000);
+        system("cls");
+        EndingScene endingScene;
+        endingScene.showLoseEnding();
         exit(0);
     }
 }

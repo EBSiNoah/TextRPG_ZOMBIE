@@ -7,6 +7,7 @@ using namespace std;
 class EndingScene {
 public:
     void showEnding();
+    void showLoseEnding();
 };
 
 #endif

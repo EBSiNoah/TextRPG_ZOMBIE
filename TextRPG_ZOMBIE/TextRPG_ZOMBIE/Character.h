@@ -4,6 +4,7 @@
 #include <map>
 #include "Item.h"
 #include <windows.h>
+#include "GameModeBase/EndingScene.h"
 
 class Character : public Actor {
 private:
