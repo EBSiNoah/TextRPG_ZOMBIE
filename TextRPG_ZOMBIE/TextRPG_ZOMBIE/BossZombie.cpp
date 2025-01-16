@@ -1,4 +1,4 @@
-#include "BossZombie.h"
+ï»¿#include "BossZombie.h"
 #include "RandomUtil.h"
 
 using namespace std;
@@ -30,10 +30,10 @@ void BossZombie::onHit(int inputAttackPower)
 {
 	Actor::onHit(inputAttackPower);
 
-	cout << Name << "´Â " << inputAttackPower << "ÀÇ µ¥¹ÌÁö¸¦ ÀÔ¾ú´Ù..!" << endl;
+	cout << Name << "ëŠ” " << inputAttackPower << "ì˜ ë°ë¯¸ì§€ë¥¼ ìž…ì—ˆë‹¤..!" << "(" << HP << "/" << MaxHP << ")" << endl;
 
 	if (isDead())
-		cout << "ÃàÇÏÇÕ´Ï´Ù! º¸½º¸¦ Å¬¸®¾îÇÏ°í °ÔÀÓÀÇ ¿£µùÀ» º¸¼Ì½À´Ï´Ù!" << endl;
+		cout << "ì¶•í•˜í•©ë‹ˆë‹¤! ë³´ìŠ¤ë¥¼ í´ë¦¬ì–´í•˜ê³  ê²Œìž„ì˜ ì—”ë”©ì„ ë³´ì…¨ìŠµë‹ˆë‹¤!" << endl;
 }
 
 void BossZombie::printStatus() const

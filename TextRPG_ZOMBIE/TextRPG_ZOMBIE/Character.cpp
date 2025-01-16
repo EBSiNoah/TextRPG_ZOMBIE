@@ -6,13 +6,13 @@
 using namespace std;
 
 Character::Character()
-    : Actor(), Job("무직"), Level(9), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
+    : Actor(), Job("무직"), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
 {
     initializeInventory();
 }
 
 Character::Character(string inputName, string inputJob, int inputAttackPower, int inputMaxHP)
-    : Actor(inputName, inputAttackPower, inputMaxHP), Job(inputJob), Level(9), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
+    : Actor(inputName, inputAttackPower, inputMaxHP), Job(inputJob), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
 {
     initializeInventory();
 }
@@ -218,10 +218,10 @@ void Character::levelUp()
 
 // 피격 오버라이딩
 void Character::onHit(int inputAttackPower) {
-    //if (useShield(inputAttackPower)) // "일회용 방패" 사용 여부
-    //{
-    //    return;
-    //}
+    if (ItemSetting::ShieldCheck(this, inputAttackPower)) // "일회용 방패" 사용 여부
+    {
+        return;
+    }
 
     Actor::onHit(inputAttackPower);
 
