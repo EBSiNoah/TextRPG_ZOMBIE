@@ -5,6 +5,7 @@
 #include "../ZombieFactory.h"
 #include <iostream>
 #include <unordered_map>
+#include "../RandomUtil.h"
 using namespace std;
 
 class BattleScene {

@@ -212,9 +212,9 @@ void Character::levelUp()
     Level++;
     MaxExp += 50;
     setAttackPower(getAttackPower() + 10);
-    setMaxHP(getMaxHP() + 50);
+    setMaxHP(getMaxHP() + 30);
     setHP(getMaxHP());
-    cout << "축하합니다! Lv. " << Level << "로 레벨 업했습니다! ( +5 공격력, +100 체력, 체력 회복! )" << endl;
+    cout << "축하합니다! Lv. " << Level << "로 레벨 업했습니다! ( 공격력 +10, 체력 +30, 체력 회복! )" << endl;
 }
 
 // 피격 오버라이딩
