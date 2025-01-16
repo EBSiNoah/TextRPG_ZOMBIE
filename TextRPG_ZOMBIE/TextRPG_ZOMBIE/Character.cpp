@@ -6,13 +6,13 @@
 using namespace std;
 
 Character::Character()
-    : Actor(), Job("무직"), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
+    : Actor(), Job("무직"), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0), killCount(0)
 {
     initializeInventory();
 }
 
 Character::Character(string inputName, string inputJob, int inputAttackPower, int inputMaxHP)
-    : Actor(inputName, inputAttackPower, inputMaxHP), Job(inputJob), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0)
+    : Actor(inputName, inputAttackPower, inputMaxHP), Job(inputJob), Level(1), Exp(0), MaxExp(100), Condition("건강"), Money(0), boostedTurns(0), killCount(0)
 {
     initializeInventory();
 }
@@ -91,6 +91,18 @@ int Character::getHP() const
 void Character::setHP(const int amount)
 {
     HP = amount;
+}
+
+// Get killcount
+int Character::getKillCount() const
+{
+    return killCount;
+}
+
+// Set killcount
+void Character::setKillCount(const int amount)
+{
+    killCount = amount;
 }
 
 // Get BoostedTurns
@@ -190,10 +202,11 @@ bool Character::payMoney(int price)
 void Character::printStatus()
 {
     cout << "\nLv." << Level << " " << Name << "(" << Job << ")" << endl;
-    cout << "HP : " << HP << "/" << MaxHP << "(" << Condition << ")" << endl;
-    cout << "AttackPower : " << AttackPower << endl;
-    cout << "EXP: " << Exp << "/" << MaxExp << endl;
+    cout << "체력 : " << HP << "/" << MaxHP << "(" << Condition << ")" << endl;
+    cout << "공격력 : " << AttackPower << endl;
+    cout << "경험치: " << Exp << "/" << MaxExp << endl;
     cout << "돈 : " << Money << endl;
+    cout << "처치한 좀비수 : " << killCount << endl;
     printInventory();
     cout << endl;
 }

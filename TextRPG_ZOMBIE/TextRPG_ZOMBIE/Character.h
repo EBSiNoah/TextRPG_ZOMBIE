@@ -14,8 +14,8 @@ private:
     int Money;
     string Condition;
     int boostedTurns;
-    //map<string, int> Inventory;
     map<int, int> Inventory;
+    int killCount;
 
 public:
     // 기본 생성자
@@ -104,6 +104,11 @@ public:
     // Inventory 상태 출력
     void printInventory();
 
+    // Get killCount
+    int getKillCount() const;
+
+    // Set killCount
+    void setKillCount(const int amount);
 
 private:
     // 레벨업 처리
