@@ -82,7 +82,11 @@ void Shop::buyItem(Character& character)
     cout << "현재 보유 금액 : " << character.getMoney() << "  ||  " << itemList[item_idx].getName() << "자원 구매 개수를 입력해주세요 : ";
     cin >> item_amount;
 
-    if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
+    if (item_amount == 0)
+    {
+        return;
+    }
+    else if (character.getMoney() >= item_amount * itemList[item_idx].getPrice())
     {
         if (itemList[item_idx].getUseType() == 0)
         {
