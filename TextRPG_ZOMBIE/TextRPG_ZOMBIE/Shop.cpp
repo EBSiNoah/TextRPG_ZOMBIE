@@ -104,7 +104,9 @@ void Shop::buyItem(Character& character)
             character.payMoney(itemList[item_idx].getPrice() * item_amount);
             character.addItem(item_idx, item_amount);
             ItemSetting item(static_cast<ItemType>(item_idx));
-            item.use(&character);
+            for (int i = 0; i < item_amount; i++) {
+                item.use(&character);
+            }
             cout << "아이템을 사용했습니다! " << "(" << itemList[item_idx].getExplain() << ")" << endl;
             Sleep(3000);
         }

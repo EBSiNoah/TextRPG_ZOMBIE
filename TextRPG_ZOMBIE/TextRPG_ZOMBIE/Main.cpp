@@ -23,7 +23,6 @@ int main() {
     openingScene.showOpening(); // 오프닝
     Character player = characterCreation.createCharacter(); // 캐릭터 생성
     system("cls");
-    player.gainMoney(10000000);
     menuScene.showMenu(player, battleScene, zombieFactory, shop); // 선택메뉴
     
     //EndingScene endingScene;

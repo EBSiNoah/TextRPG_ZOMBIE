@@ -27,6 +27,8 @@ void MenuScene::showMenu(Character& player, BattleScene& battleScene, ZombieFact
         case 3:
             system("cls");
             player.printStatus();
+            system("PAUSE");
+            system("cls");
             break;
         case 0:
             cout << "모든 것을 끝냈습니다. 이젠 좀비들도 당신을 찾지 못할 겁니다." << endl;
