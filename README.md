@@ -43,7 +43,8 @@
 
 ## 주요 기능
 - <details><summary>Actor class</summary>
-```class Actor
+```c++
+class Actor
 {
 private:
 	string Name;
@@ -58,7 +59,7 @@ public:
 	virtual void onHit(int inputAttackPower);
 	bool isDead();
 	void printStatus();
-};</details>
+};</details>```
 - Character class
 - Various Zombie class
 - Item class
