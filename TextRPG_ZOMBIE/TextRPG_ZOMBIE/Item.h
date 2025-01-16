@@ -27,6 +27,8 @@ protected:
 	string Name;
 	ItemType itemtype;
 	int Price;
+	string Explain;
+	bool UseType;
 
 public:
 	ItemSetting(ItemType type);

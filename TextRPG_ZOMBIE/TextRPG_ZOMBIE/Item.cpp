@@ -3,48 +3,64 @@
 
 // 생성자 구현 (초기화 값을 넣거나, 기본값 설정)
 ItemSetting::ItemSetting(ItemType type)
-    : Name(""), itemtype(type), Price(0)
+    : Name(""), itemtype(type), Price(0), Explain(""), UseType(0)
 {
     switch (itemtype)
     {
     case Morphine:
         Name = "모르핀";
         Price = 50;
+        Explain = "모르핀에 대한 설명 입니다";
+        UseType = 1;
         break;
 
     case Epinephrine:
         Name = "에피네프린";
         Price = 60;
+        Explain = "에피네프린에 대한 설명 입니다";
+        UseType = 0;
         break;
 
     case Methylamphetamine:
         Name = "메스암페타민";
         Price = 70;
+        Explain = "메스암페타민에 대한 설명 입니다";
+        UseType = 0;
         break;
 
     case Fentanyl:
         Name = "펜타닐";
         Price = 80;
+        Explain = "펜타닐에 대한 설명 입니다";
+        UseType = 1;
         break;
 
     case Revital:
         Name = "레비탈";
         Price = 100;
+        Explain = "레비탈에 대한 설명 입니다";
+        UseType = 0;
         break;
 
     case WoodenSword:
         Name = "목검";
         Price = 75;
+        Explain = "목검에 대한 설명 입니다";
+        UseType = 1;
         break;
 
     case Shield:
         Name = "일회용 방패";
         Price = 70;
+        Explain = "일회용 방패에 대한 설명 입니다";
+        UseType = 0;
         break;
 
     case Vaccine:
         Name = "바이러스 백신";
         Price = 50;
+        Explain = "바이러스 백신에 대한 설명 입니다";
+        UseType = 1;
         break;
     }
 }
@@ -59,9 +75,9 @@ void ItemSetting::use(Character* chara)
     // 아이템의 현재 소지 개수 체크
     int count = 0;
     bool found = false;
-    for (const auto& p : inv) 
+    for (const auto& p : inv)
     {
-        if (p.first == key) 
+        if (p.first == key)
         {
             count = p.second;
             found = true;
@@ -96,7 +112,7 @@ void ItemSetting::use(Character* chara)
         break;
 
     case Fentanyl:
-        if (chara->MaxHP < 31) 
+        if (chara->MaxHP < 31)
         {
             // 최대 체력이 30이하라면 최대 체력을 1로 만듭니다.
             chara->MaxHP = 1;
@@ -105,7 +121,7 @@ void ItemSetting::use(Character* chara)
             if (chara->HP > chara->MaxHP)
                 chara->HP = chara->MaxHP;
         }
-        else 
+        else
         {
             cout << "최대 체력 30 감소, 체력 5000 회복!" << endl;
             chara->MaxHP -= 30;
@@ -129,12 +145,16 @@ void ItemSetting::use(Character* chara)
         }
         break;
 
+    case Shield:
+
+        break;
+
     case Vaccine:
-        if (chara->getCondition() == "건강") 
+        if (chara->getCondition() == "건강")
         {
             cout << "감염 상태가 아닙니다." << endl;
         }
-        else if (chara->getCondition() == "감염") 
+        else if (chara->getCondition() == "감염")
         {
             chara->setCondition("건강");
             cout << "감염 상태가 회복되었습니다!" << endl;
