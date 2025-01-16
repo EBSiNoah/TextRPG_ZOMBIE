@@ -5,7 +5,7 @@ using namespace std;
 
 HalfZombie::HalfZombie(const int playerLevel) : Actor("", 0, 0)
 {
-    Name = "HalfZombie";
+    Name = "반좀비";
     MaxHP = RandomUtil::GetRandomInt(playerLevel * 20, playerLevel * 30);
     AttackPower = RandomUtil::GetRandomInt(playerLevel * 5, playerLevel * 10);
     HP = MaxHP;

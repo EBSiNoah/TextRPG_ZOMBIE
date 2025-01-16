@@ -5,7 +5,7 @@ using namespace std;
 
 BossZombie::BossZombie(const int playerLevel) : Actor("", 0, 0)
 {
-	Name = "BossZombie";
+	Name = "좀비들의 왕";
 	MaxHP = RandomUtil::GetRandomInt(playerLevel * 20 * 1.5, playerLevel * 30 * 1.5);
 	AttackPower = RandomUtil::GetRandomInt(playerLevel * 5 * 1.5, playerLevel * 10 * 1.5);
 	HP = MaxHP;
